@@ -1,14 +1,15 @@
 ﻿'use strict';
 
-app.factory('loginService', function ($http,$location,sessionService) {
+app.factory('loginService', function ($http, $location, sessionService) {
+    var TeamID;
     return {
         login: function (user,scope) {
             console.log('Am intrat in loginService');
             var $promise = $http.post('php/login.php', user);
             $promise.then(function (msg) {
                 console.log(msg);
-                var TeamID = msg.data;
-                
+                TeamID = msg.data;
+                scope.TeamID = msg.data;
                 if (msg.data) {
                     scope.msgtxt = 'Success!';
                     console.log('succes login');
@@ -25,7 +26,7 @@ app.factory('loginService', function ($http,$location,sessionService) {
         },
 
         logout: function () {
-            sessionService.destroy('uid');
+            sessionService.destroy('TeamID');
             $location.path('/login');
         },
         islogged: function () {
