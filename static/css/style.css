@@ -1,0 +1,72 @@
+﻿.sidebar {
+position: fixed;
+top: 51px;
+bottom: 0;
+left: 0;
+z-index: 1000;
+display: block;
+*padding: 20px;
+overflow-x: hidden;
+overflow-y: auto;
+background-color: #f5f5f5;
+border-right: 1px solid #eee;
+}
+
+
+.nav-sidebar {
+margin-right: -21px;
+margin-bottom: 20px;
+margin-left: -20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #fdba13;
+}
+
+.main {
+padding-right: 40px;
+padding-left: 40px;
+}
+
+.btn-circle {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  padding: px 0;
+font-size: 20px;
+  line-height: 1.42;
+  border-radius: 25px;
+}
+
+.btn-bee {
+  color: #fff;
+  background-color: #fdba13;
+  border-color: #f6b512;
+}
+.btn-bee:hover,
+.btn-bee:focus,
+.btn-bee:active,
+.btn-bee.active,
+.open > .dropdown-toggle.btn-bee {
+  color: #fff;
+  background-color: #f6b512;
+  border-color: #f6b512;
+}
+
+h3, h4 {
+font-family: 'Gudea', sans-serif;
+font-weight:700;
+}
+img.bg {
+min-height: 100%;
+min-width: 640px;
+width: 100%;
+height: auto;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -2;
+}

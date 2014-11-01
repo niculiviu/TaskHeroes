@@ -1,0 +1,82 @@
+﻿<div align="center" style="width:400px; margin:0 auto; margin-top:6%;">
+    
+    <div class="well well-lg">
+        <h5>Welcome: {{user.mail}}</h5>
+        <form role="form" name="form1">
+            <div class="form-group">
+                <input required ng-model="user.mail" placeholder="e-mail" class="form-control input-lg" />
+            </div>
+            <div class="form-group">
+                <input required ng-model="user.pass" placeholder="password" type="password" class="form-control input-lg" />
+            </div>
+            <h5>{{msgtxt}}</h5>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <button ng-disabled="form1.$invalid" type="submit" class="btn btn-bee btn-lg" style="width:100%;" ng-click="login(user)">Login</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="#" class="btn btn-primary btn-lg" style="width:100%;" data-toggle="modal" data-target="#RegisterModal">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Register your Organization</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input placeholder="First Name" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input placeholder="Last Name" class="form-control input-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Your e-mail" class="form-control input-lg" />
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input placeholder="Password" class="form-control input-lg" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <input placeholder="Password" class="form-control input-lg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input placeholder="Organization Name" class="form-control input-lg" />
+                </div>
+                <div class="form-group">
+                    <select placeholder="Organization Name" class="form-control input-lg">
+                        <option>--SELECT ORGANIZATION TYPE--</option>
+                        <option>Students Association</option>
+                        <option>School</option>
+                        <option>Religios</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary btn-lg" style="width:100%">Register</button>
+            </div>
+        </div>
+    </div>
+</div>
