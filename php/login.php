@@ -9,10 +9,15 @@ $pass=$user_data->pass;
 
 if($user->login($mail,$pass)){ 
 
-		print 'succes';
+		
+    //session_start();
+		$_SESSION['uid']=$user->get_team_id($mail);
+    $_SESSION['team_id']=$user->get_team_id($mail);
+    print $_SESSION['team_id'];
+		//print $_SESSION['uid'];
 	
 	} else {
-	print 'error logins';
+	
 		$error[] = 'Wrong username or password or your account has not been activated.';
 	}
 

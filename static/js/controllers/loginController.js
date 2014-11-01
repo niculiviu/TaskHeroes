@@ -1,9 +1,8 @@
 ﻿'use strict';
 
-app.controller('loginCtrl', function ($scope, loginService) {
+app.controller('loginCtrl', ['$scope', 'loginService', '$location', function ($scope, loginService) {
     $scope.msgtxt = '';
-    $scope.login = function (user) {
-        console.log('am intrat in loginCtrl');
-        loginService.login(user, $scope);
-    }
-})
+    $scope.login = function (data) {
+        loginService.login(data, $scope); //call login service
+    };
+}]);

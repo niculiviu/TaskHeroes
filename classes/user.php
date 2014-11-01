@@ -9,6 +9,19 @@ class User extends Password{
     
     	$this->_db = $db;
     }
+    
+    public function get_team_id($username){
+    try {
+			$stmt = $this->_db->prepare('SELECT id_team FROM user WHERE email = :email ');
+			$stmt->execute(array('email' => $username));
+			
+			$row = $stmt->fetch();
+			return $row['id_team'];
+
+		} catch(PDOException $e) {
+		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+		}
+    }
 
 	private function get_user_hash($username){	
 
