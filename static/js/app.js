@@ -10,7 +10,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 
 app.run(function ($rootScope, $location, loginService) {
-    var routespermission = ['/admin'];  //route that require login
+    var routespermission = ['/admin/:TeamID/'];  //route that require login
     $rootScope.$on('$routeChangeStart', function () {
         if (routespermission.indexOf($location.path()) != -1) {
             var connected = loginService.islogged();

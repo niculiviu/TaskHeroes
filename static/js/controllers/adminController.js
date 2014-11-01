@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.controller('adminCtrl', ['$scope', 'loginService', '$location','adminService', function ($scope, loginService, $routeParams, adminService) {
+app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService','$rootScope', function ($scope, loginService, $routeParams, adminService, $rootScope) {
     
     $scope.txt = 'Page Home';
     $scope.logout = function () {
@@ -12,5 +12,8 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location','adminService
     $scope.ID = res[2];
     console.log($scope.ID);
 
-    adminService.getProject($scope.ID,$scope);
+    adminService.getProject($scope.ID, $rootScope);
+    
+    
+    
 }])
