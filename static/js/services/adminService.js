@@ -9,8 +9,13 @@ app.factory('adminService', ['$http', '$location', function ($http,$rootScope) {
                 console.log($rootScope.proiecte);
             });
            
+        },
+        getMembers: function (ID, $rootScope) {
+            $http.post("php/getMembers.php?ID=" + ID).success(function (data) {
+                $rootScope.members = data;
+                console.log($rootScope.members);
+            });
         }
-        
 
     }
     

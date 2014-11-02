@@ -17,3 +17,9 @@ app.directive('dashboard', function () {
         templateUrl: 'static/template/dashboard_template.html'
     }
 });
+
+app.directive('members', function () {
+    return {
+        templateUrl: 'static/template/members_template.html'
+    }
+});

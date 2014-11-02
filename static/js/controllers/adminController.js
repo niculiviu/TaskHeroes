@@ -9,13 +9,16 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
     $scope.Route = $routeParams.path();
     var res = $scope.Route.split('/');
     $scope.ID = res[2];
+  
     console.log($scope.ID);
 
+    
+    
+    adminService.getMembers($scope.ID, $rootScope);
     adminService.getProject($scope.ID, $rootScope);
     
-    $scope.show_dropdown = function () {
-        $('.dropdown-toggle').dropdown('show');
-    }
-   
     
-}])
+
+   
+
+    }]);

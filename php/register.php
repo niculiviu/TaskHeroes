@@ -9,7 +9,7 @@ $pass=$user_data->pass1;
 $first=$user_data->first;
 $last=$user_data->last;
 $org_name=$user_data->org_name;
-$type=$user_data->type;
+$type=$user_data->org_type;
 
 
 $query1="INSERT INTO team (nume_team,tip) VALUES ('$org_name','$type')";
