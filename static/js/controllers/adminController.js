@@ -1,7 +1,6 @@
 ﻿'use strict';
 
 app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService','$rootScope', function ($scope, loginService, $routeParams, adminService, $rootScope) {
-    
     $scope.txt = 'Page Home';
     $scope.logout = function () {
         loginService.logout();
@@ -14,6 +13,9 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
 
     adminService.getProject($scope.ID, $rootScope);
     
-    
+    $scope.show_dropdown = function () {
+        $('.dropdown-toggle').dropdown('show');
+    }
+   
     
 }])

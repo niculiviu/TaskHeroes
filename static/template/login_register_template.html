@@ -1,5 +1,5 @@
 ﻿<div align="center" style="width:400px; margin:0 auto; margin-top:6%;">
-    
+
     <div class="well well-lg">
         <h5>Welcome: {{user.mail}}</h5>
         <form role="form" name="form1">
@@ -32,51 +32,54 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">Register your Organization</h4>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input placeholder="First Name" class="form-control input-lg" />
+            <form role="form" name="form2">
+                <div class="modal-body">
+                    <h5>{{msgtxt_register}}</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input placeholder="First Name" class="form-control input-lg" ng-model="new_user.first" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input placeholder="Last Name" class="form-control input-lg" ng-model="new_user.last" />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input placeholder="Last Name" class="form-control input-lg" />
+                    <div class="form-group">
+                        <input placeholder="Your e-mail" class="form-control input-lg" ng-model="new_user.email" />
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input placeholder="Password" class="form-control input-lg" ng-model="new_user.pass1" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input placeholder="Password" class="form-control input-lg" ng-model="new_user.pass2" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <input placeholder="Your e-mail" class="form-control input-lg" />
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input placeholder="Password" class="form-control input-lg" />
-                        </div>
+                    <div class="form-group">
+                        <input placeholder="Organization Name" class="form-control input-lg" ng-model="new_user.org_name" />
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <input placeholder="Password" class="form-control input-lg" />
-                        </div>
+                    <div class="form-group">
+                        <select placeholder="Organization Name" class="form-control input-lg" ng-model="new_user.org_type">
+                            <option value="0">--SELECT ORGANIZATION TYPE--</option>
+                            <option value="1">Students Association</option>
+                            <option value="2">School</option>
+                            <option value="3">Religios</option>
+                            <option value="4">Other</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <input placeholder="Organization Name" class="form-control input-lg" />
-                </div>
-                <div class="form-group">
-                    <select placeholder="Organization Name" class="form-control input-lg">
-                        <option>--SELECT ORGANIZATION TYPE--</option>
-                        <option>Students Association</option>
-                        <option>School</option>
-                        <option>Religios</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <button type="button" class="btn btn-primary btn-lg" style="width:100%">Register</button>
-            </div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="width:100%" ng-click="register(new_user)">Register</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

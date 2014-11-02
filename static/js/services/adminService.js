@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.factory('adminService', ['$http', '$location', function ($http) {
+app.factory('adminService', ['$http', '$location', function ($http,$rootScope) {
     return {
         getProject: function (ID, $rootScope) {
             
@@ -8,8 +8,10 @@ app.factory('adminService', ['$http', '$location', function ($http) {
                 $rootScope.proiecte = data;
                 console.log($rootScope.proiecte);
             });
-
+           
         }
+        
+
     }
     
 }]);

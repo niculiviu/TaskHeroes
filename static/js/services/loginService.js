@@ -36,6 +36,19 @@ app.factory('loginService', function ($http, $location, sessionService) {
 			if(sessionService.get('user')) return true;
 			else return false;
 			*/
+        },
+        register: function (user,scope){
+            console.log('Am intrat in register service');
+            var $promise = $http.post('php/register.php', user);
+            $promise.then(function (msg) {
+                if (msg == 'succes') {
+                    $('#RegisterModal').modal('hide');
+                } else {
+                    $('#RegisterModal').modal('hide');
+                    scope.msgtxt = 'succes! Acum te poti loga'
+                }
+                
+            });
         }
     }
 });

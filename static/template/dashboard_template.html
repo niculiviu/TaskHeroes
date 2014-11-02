@@ -7,16 +7,18 @@
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte">
             <div class="well">
                 <a href="#"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
-                <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#">{{proiect.id_user_project_manager}}</a></small>
+                <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#">{{proiect.nume_user}}</a></small>
                 <hr style="margin:5px;" />
-                <span class="label label-primary">3 Days Remaining</span>
+                <span class="label label-primary">Start Date: {{proiect.start_date}}</span>
+                <span class="label label-primary">End Date: {{proiect.end_date}}</span>
                 <div class="pull-right">
                     <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
                     <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
                 </div>
             </div>
         </div>
-       
+    </div>
+    <div class="row">
         <div class="col-md-5">
             <div class="page-header" style="margin-top:10px;margin-bottom:0px;">
                 <h4>Past Projects</h4>
