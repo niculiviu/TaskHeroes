@@ -1,5 +1,5 @@
 ﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:70px;">
-    <h3 style="margin-top:0px;">Projects <small>In Progress</small> <a href="#" class="btn btn-bee btn-sm"><span class="glyphicon glyphicon-plus"></span> Add Project</a></h3>
+    <h3 style="margin-top:0px;">Projects <small>In Progress</small> <button type="button" class="btn btn-bee btn-sm" data-toggle="modal" data-target="#NewProjectModal"><span class="glyphicon glyphicon-plus"></span> Add Project</button></h3>
     <hr />
     <div>
     </div>
@@ -106,5 +106,47 @@
         </div>
 
 
+    </div>
+</div>
+
+<div class="modal fade " id="NewProjectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Add New Project</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input class="form-control input-lg" placeholder="Project name..." ng-model="newProject.name" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="input-group">
+                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" ng-change="changeStartDate()" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <input class="form-control" ng-model="newProject.StartDate" min-date="minDate" datepicker-popup="{{format}}">
+                            
+                            
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input class="form-control" placeholder="End Date..."  type="text" id="to" name="to" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
