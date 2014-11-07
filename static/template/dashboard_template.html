@@ -119,32 +119,49 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <input class="form-control input-lg" placeholder="Project name..." ng-model="newProject.name" />
+                        <label>Project Name:</label>
+                        <input class="form-control" placeholder="Project name..." ng-model="newProject.name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea class="form-control" rows="3" placeholder="Description..." ng-model="newProject.description"></textarea>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
+                            <label>Start Date:</label>
                             <p class="input-group">
-                                <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" ng-change="changeStartDate()" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <input type="text" placeholder="Start Date" class="form-control" readonly datepicker-popup="{{format}}" ng-model="newProject.StartDate" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
                                 <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    <a class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></a>
                                 </span>
                             </p>
                         </div>
+
+                        <div class="col-md-6">
+                            <label>End Date:</label>
+                            <p class="input-group">
+                                <input type="text" placeholder="End Date" class="form-control" readonly datepicker-popup="{{format}}" ng-model="newProject.EndDate" is-open="opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+                                    <a class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></a>
+                                </span>
+                            </p>
+                        </div>
+                        
                     </div>
                     <div class="row">
-                        <div class="form-group col-sm-6">
-                            <input class="form-control" ng-model="newProject.StartDate" min-date="minDate" datepicker-popup="{{format}}">
-                            
-                            
+                        <div class="col-sm-12">
+                            <label>Choose a Project Manager</label>
+                            <select class="form-control" ng-model="newProject.ProjectManager">
+                                <option ng-repeat="member in members" value="{{member.ID}}">{{member.nume_user}}</option>
+                            </select>
                         </div>
-                        <div class="form-group col-sm-6">
-                            <input class="form-control" placeholder="End Date..."  type="text" id="to" name="to" />
-                        </div>
+                        <input type="hidden" ng-init="newProject.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newProject.TeamID">
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" ng-click="addProject(newProject)">New Project</button>
                 </div>
             </form>
         </div>

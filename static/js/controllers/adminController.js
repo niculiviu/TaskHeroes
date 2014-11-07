@@ -25,9 +25,7 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
     };
 
         // Disable weekend selection
-    $scope.disabled = function (date, mode) {
-        return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
-    };
+    
 
     $scope.toggleMin = function () {
         $scope.minDate = $scope.minDate ? null : new Date();
@@ -41,6 +39,13 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
         $scope.opened = true;
     };
 
+    $scope.open2 = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+
+        $scope.opened2 = true;
+    };
+
     $scope.dateOptions = {
         formatYear: 'yy',
         startingDay: 1
@@ -52,6 +57,15 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
     $scope.changeStartDate = function () {
         $scope.newProject = {StartDate: $scope.dt}
     }
-   
-
+    var project = {};
+    $rootScope.mesaj = '';
+    $scope.addProject = function (project) {
+        console.log(project);
+        adminService.addProject(project, $rootScope);
+            if ($rootScope.mesaj == 'success') {
+                alert('sddasdas');
+            }
+       
+        
+    }
     }]);

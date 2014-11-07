@@ -15,6 +15,13 @@ app.factory('adminService', ['$http', '$location', function ($http,$rootScope) {
                 $rootScope.members = data;
                 console.log($rootScope.members);
             });
+        },
+        addProject: function (data, $rootScope) {
+            $http.post('php/addProject.php', data).success(function (data) {
+                if (data == 'success') {
+                    $('#NewProjectModal').modal('hide');
+                };
+            });
         }
 
     }
