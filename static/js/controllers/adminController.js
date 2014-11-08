@@ -57,8 +57,7 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
     $scope.changeStartDate = function () {
         $scope.newProject = {StartDate: $scope.dt}
     }
-    var project = {};
-    $rootScope.mesaj = '';
+    
     $scope.addProject = function (project) {
         console.log(project);
         adminService.addProject(project, $rootScope);
@@ -67,5 +66,10 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
             }
        
         
+    }
+
+    $scope.removeProject = function (ID) {
+        console.log(ID);
+        adminService.removeProject(ID);
     }
     }]);

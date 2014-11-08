@@ -4,7 +4,7 @@
     <div>
     </div>
     <div class="row">
-        <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte">
+        <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
             <div class="well">
                 <a href="#"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
                 <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#">{{proiect.nume_user}}</a></small>
@@ -13,7 +13,7 @@
                 <span class="label label-primary">End Date: {{proiect.end_date}}</span>
                 <div class="pull-right">
                     <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-trash"></span></a>
+                    <button class="btn btn-link btn-sm" ng-click="removeProject(proiect.ID_proiect)"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
             </div>
         </div>

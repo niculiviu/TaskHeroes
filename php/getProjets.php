@@ -4,7 +4,7 @@ require_once('../includes/db.php');
 if(isset($_GET['ID'])){
 $ID = $_GET['ID'];
 }
-$query="SELECT * FROM proiect JOIN user ON proiect.id_user_project_manager=user.ID AND proiect.id_team='$ID' ORDER BY proiect.ID";
+$query="SELECT * FROM proiect JOIN user ON proiect.id_user_project_manager=user.ID AND proiect.id_team='$ID' ORDER BY proiect.ID_proiect";
 $result = $db->query($query) or die($db->error.__LINE__);
 
 $arr = array();
