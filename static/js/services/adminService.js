@@ -1,7 +1,8 @@
 ﻿'use strict';
 
 app.factory('adminService', ['$http', '$location', function ($http, $rootScope) {
-    return {
+    var myFunctions =
+    {
         getProject: function (ID, $rootScope) {
 
             $http.post("php/getProjets.php?ID=" + ID).success(function (data) {
@@ -18,10 +19,13 @@ app.factory('adminService', ['$http', '$location', function ($http, $rootScope) 
         },
         addProject: function (data, $rootScope) {
             $http.post('php/addProject.php', data).success(function (data) {
-                if (data == 'success') {
+                if (data) {
                     $('#NewProjectModal').modal('hide');
+                    myFunctions.getProject(data, $rootScope);
+                    //location.reload();
                 };
             });
+
         },
         removeProject: function (ID) {
             $http.post('php/removeProject.php?ID=' + ID).success(function (data) {
@@ -32,5 +36,6 @@ app.factory('adminService', ['$http', '$location', function ($http, $rootScope) 
         }
 
     }
+    return myFunctions;
 
 }]);
