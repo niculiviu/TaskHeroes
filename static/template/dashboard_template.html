@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
             <div class="well">
-                <a href="#"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
+                <a href="#/admin/project/{{proiect.ID_proiect}}/"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
                 <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>
                 <hr style="margin:5px;" />
                 <span class="label label-primary">Start Date: {{proiect.start_date}}</span>

@@ -1,14 +1,15 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="task_heroes">
 <head>
-    <title></title>
+    <title>Task Heroes</title>
     <link href="static/css/bootstrap.css" rel="stylesheet">
     <link href="static/css/style.css" rel="stylesheet">
     <link href="static/css/jquery-ui.css" rel="stylesheet">
     <link href="static/css/jquery-ui.theme.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Gudea:400,700' rel='stylesheet' type='text/css'>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body style="background-color: rgb(245, 245, 245);">
+<body style="background-color: rgb(245, 245, 245); height:100%;">
 
     <div ng-view></div>
     <!--  <img src="img/b.jpg" class="bg" alt="background" id="backimg">
@@ -28,11 +29,13 @@
     <!--Directives-->
     <script src="static/js/directives/loginDirective.js"></script>
     <script src="static/js/directives/adminDirective.js"></script>
+    <script src="static/js/directives/projectDirective.js"></script>
     
 
     <!--Controllers-->
     <script src="static/js/controllers/loginController.js"></script>
     <script src="static/js/controllers/adminController.js"></script>
+    <script src="static/js/controllers/projectController.js"></script>
     
     <!--Services-->
     <script src="static/js/services/loginService.js"></script>
