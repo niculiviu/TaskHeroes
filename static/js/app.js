@@ -4,7 +4,7 @@ var app = angular.module('task_heroes', ['ngRoute', 'ui.bootstrap']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/login', { templateUrl: 'static/login.html', controller: 'loginCtrl' });
     $routeProvider.when('/admin/', { templateUrl: 'static/dashboard.html', controller: 'adminCtrl' });
-    $routeProvider.when('/admin/members/', { templateUrl: 'static/members.html', controller: 'adminCtrl' });
+    $routeProvider.when('/admin/members/', { templateUrl: 'static/members.html', controller: 'membersCtrl' });
     $routeProvider.when('/admin/meetrings/', { templateUrl: 'static/meetings.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/organization/', { templateUrl: 'static/organization_admin.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/profile/:ID/', { templateUrl: 'static/profile.html', controller: 'adminCtrl' });

@@ -1,78 +1,123 @@
 ﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:70px;">
-    
-    <!--h3 style="margin-top:0px;">Members <span><a href="#" class="btn btn-bee btn-sm"><span class="glyphicon glyphicon-plus"></span> Add New Member</a></span></h3-->
-    <h3 style="margin-top:0px;">Members <small>In Progress</small> <button type="button" class="btn btn-bee btn-sm" data-toggle="modal" data-target="#NewMemberModal"><span class="glyphicon glyphicon-plus"></span> Add New Member</button></h3>
-    
-    
-    <hr />
-    <table class="table table-hover table-condensed table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nume</th>
-                <th>Prenume</th>
-                <th>e-mail</th>
-                <th>edit</th>
-                <th>sterge</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="membru in members">
-                <td>{{membru.ID}}</td>
-                <td>{{membru.nume_user}}</td>
-                <td>{{membru.prenume_user}}</td>
-                <td>{{membru.email}}</td>
-                <td><a href="#" class="btn btn-link btn-sm">Edit</a></td>
-                <td><a href="#" class="btn btn-link btn-sm">Sterge</a></td>
+    <div class="row">
+        <div class="col-sm-4">
+            <form>
+                <div>
 
-            </tr>
-        </tbody>
-    </table>
+                    <h4 style="margin-top:0px;" class="modal-title" id="myModalLabel">Add New Member</h4>
+                    <hr />
+                </div>
+                <div>
+                    <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
+                        <div class="form-group col-lg-6" style="padding-left:0px;">
+
+                            <input class="form-control" placeholder="Nume..." ng-model="newMember.name" />
+                        </div>
+                        <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
+
+                            <input class="form-control" placeholder="Prenume..." ng-model="newMember.prenume" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
+                        <div class="form-group col-lg-6" style="padding-left:0px;">
+
+                            <input class="form-control" placeholder="E-mail..." ng-model="newMember.email" />
+                        </div>
+                        <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
+
+                            <input class="form-control" placeholder="Numar de telefon..." ng-model="newMember.tel" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <input type="password" class="form-control" ng-model="newMember.pass" placeholder="Parola">
+                    </div>
+                    <div class="form-group">
+                        <label>Select Department</label>
+                        <select class="form-control" ng-model="newMember.dep">
+                            <option ng-repeat="d in all_dep" value="{{d.ID}}">{{d.nume_departament}}</option>
+                        </select>
+                        <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-bee" ng-click="addMember(newMember)" style="width:100%;">New Member</button>
+                </div>
+            </form>
+
+            <form>
+                <div>
+
+                    <h4 style="margin-top:0px;" class="modal-title" id="myModalLabel">Add New Member</h4>
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="form-group">
+
+                            <input class="form-control" placeholder="Nume departament..." ng-model="dep.name" />
+                            <input type="hidden" ng-init="dep.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="dep.TeamID">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <button type="button" class="btn btn-bee" ng-click="addDepartment(dep)" style="width:100%;">New</button>
+                    </div>
+                </div>
+            </form>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Departamente</h3>
+                </div>
+                <div class="panel-body" style="padding:0px;">
+                    <table class="table table-hover table-condensed table-striped">
+                        
+                        <tr ng-repeat="d in all_dep">
+                            <td>{{d.nume_departament}}</td>
+                            <td align="right"><button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <h3 style="margin-top:0px;">Members</h3>
+
+
+            <hr />
+            <table class="table table-hover table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nume</th>
+                        <th>Prenume</th>
+                        <th>e-mail</th>
+                        
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="membru in members">
+                        <td>{{membru.ID}}</td>
+                        <td>{{membru.nume_user}}</td>
+                        <td>{{membru.prenume_user}}</td>
+                        <td>{{membru.email}}</td>
+                        
+                        <td align="right"><a href="#" class="btn btn-bee btn-xs">Edit</a> <a href="#" class="btn btn-danger btn-xs">Sterge</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--h3 style="margin-top:0px;">Members <span><a href="#" class="btn btn-bee btn-sm"><span class="glyphicon glyphicon-plus"></span> Add New Member</a></span></h3-->
+
+
 </div>
 
 <div class="modal fade " id="NewMemberModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Add New Member</h4>
-                </div>
-                <div class="modal-body">
-	                <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
-	                    <div class="form-group col-lg-6" style="padding-left:0px;">
-	                        <label>Nume:</label>
-	                        <input class="form-control" placeholder="Nume..." ng-model="newMember.name" />
-	                    </div>
-	                    <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
-	                        <label>Prenume:</label>
-	                        <input class="form-control" placeholder="Prenume..." ng-model="newMember.name" />
-	                    </div>
-	                </div>
-	                <div class="col-lg-12"style="padding-left: 0px; margin-left: 0px; padding: 0px;">
-	                    <div class="form-group col-lg-6" style="padding-left:0px;">
-	                        <label>E-mail:</label>
-	                        <input class="form-control" placeholder="E-mail..." ng-model="newMember.name" />
-	                    </div>
-	                    <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
-	                        <label>Numar de telefon</label>
-	                        <input class="form-control" placeholder="Numar de telefon..." ng-model="newMember.name" />
-	                    </div>
-	                </div>
-                    <div class="form-group">
-                        <label>Parola</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Parola">
-                    </div>
-                    <div class="form-group">
-                        <label>Departament</label>
-                        <input class="form-control" placeholder="Nume departaments..." ng-model="newMember.name" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="addMember(newMember)">New Member</button>
-                </div>
-            </form>
+
         </div>
     </div>
 </div>

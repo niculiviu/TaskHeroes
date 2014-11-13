@@ -61,10 +61,6 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
     $scope.addProject = function (project) {
         console.log(project);
         adminService.addProject(project, $rootScope);
-            if ($rootScope.mesaj == 'success') {
-                alert('sddasdas');
-            }
-       
         
     }
 
