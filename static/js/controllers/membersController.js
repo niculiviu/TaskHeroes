@@ -1,6 +1,7 @@
 ﻿app.controller('membersCtrl', ['$scope', 'loginService', '$location', '$rootScope','membersService',
     function ($scope, loginService, $routeParams, $rootScope,membersService) {
         $scope.txt = 'Page Home';
+        $rootScope.PageName = 'Members';
         $scope.logout = function () {
             loginService.logout();
         }
@@ -19,5 +20,8 @@
             console.log(data);
             membersService.newDep(data, $rootScope);
             
+        }
+        $scope.chooseDep = function (data) {
+            $scope.searchText = data;
         }
     }]);

@@ -2,7 +2,8 @@
 
 app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope',
     function ($scope, loginService, $routeParams, adminService, $rootScope, $window, $location) {
-    $scope.txt = 'Page Home';
+        $scope.txt = 'Page Home';
+        $rootScope.PageName = 'Dashboard';
     $scope.logout = function () {
         loginService.logout();
     }

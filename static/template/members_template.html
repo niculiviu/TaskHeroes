@@ -40,16 +40,15 @@
                         <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-bee" ng-click="addMember(newMember)" style="width:100%;">New Member</button>
+                <div>
+                    <button type="button" class="btn btn-bee" ng-click="addMember(newMember)" style="width:100%;">Add Member</button>
                 </div>
             </form>
 
             <form>
-                <div>
+                <div class="page-header">
 
                     <h4 style="margin-top:0px;" class="modal-title" id="myModalLabel">Add New Departament</h4>
-                    <hr />
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
@@ -72,7 +71,7 @@
                     <table class="table table-hover table-condensed table-striped">
 
                         <tr ng-repeat="d in all_dep">
-                            <td>{{d.nume_departament}}</td>
+                            <td><button class="btn btn-link btn-xs" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</button></td>
                             <td align="right"><button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></td>
                         </tr>
                     </table>
@@ -89,8 +88,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Nume</th>
-                        <th>Prenume</th>
+                        <th>Nume si Prenume</th>
+                        <th>Departament</th>
                         <th>e-mail</th>
                         <th>Telefon</th>
                         <th></th>
@@ -98,9 +97,9 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="membru in members | filter:searchText">
-                        <td>{{membru.ID}}</td>
-                        <td>{{membru.nume_user}}</td>
-                        <td>{{membru.prenume_user}}</td>
+                        <td>{{membru.id}}</td>
+                        <td>{{membru.nume_user}} {{membru.prenume_user}}</td>
+                        <td>{{membru.nume_departament}}</td>
                         <td>{{membru.email}}</td>
                         <td>{{membru.tel}}</td>
                         <td align="right"><a href="#" class="btn btn-bee btn-xs">Edit</a> <a href="#" class="btn btn-danger btn-xs">Sterge</a></td>
