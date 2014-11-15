@@ -27,6 +27,7 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
             $http.post("php/newMember.php",data).success(function (data) {
                 if (data) {
                     console.log(data);
+                    myFunctions.getMembers(data, $rootScope);
                 }
             });
         },

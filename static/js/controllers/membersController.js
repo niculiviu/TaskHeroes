@@ -10,9 +10,10 @@
         membersService.getMembers($scope.TeamID_root, $rootScope);
         membersService.getDep($scope.TeamID_root, $rootScope);
 
-        $scope.newMember = function (data) {
+        $scope.addMember = function (data) {
             console.log(data);
             membersService.newMember(data, $rootScope);
+            $scope.newMember = '';
         }
         $scope.addDepartment = function (data) {
             console.log(data);

@@ -11,26 +11,26 @@
                     <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
                         <div class="form-group col-lg-6" style="padding-left:0px;">
 
-                            <input class="form-control" placeholder="Nume..." ng-model="newMember.name" />
+                            <input class="form-control input-sm" placeholder="Nume..." ng-model="newMember.nume" />
                         </div>
                         <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
 
-                            <input class="form-control" placeholder="Prenume..." ng-model="newMember.prenume" />
+                            <input class="form-control input-sm" placeholder="Prenume..." ng-model="newMember.prenume" />
                         </div>
                     </div>
                     <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
                         <div class="form-group col-lg-6" style="padding-left:0px;">
 
-                            <input class="form-control" placeholder="E-mail..." ng-model="newMember.email" />
+                            <input class="form-control input-sm" placeholder="E-mail..." ng-model="newMember.email" />
                         </div>
                         <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
 
-                            <input class="form-control" placeholder="Numar de telefon..." ng-model="newMember.tel" />
+                            <input class="form-control input-sm" placeholder="Numar de telefon..." ng-model="newMember.tel" />
                         </div>
                     </div>
                     <div class="form-group">
 
-                        <input type="password" class="form-control" ng-model="newMember.pass" placeholder="Parola">
+                        <input type="password" class="form-control input-sm" ng-model="newMember.pass" placeholder="Parola">
                     </div>
                     <div class="form-group">
                         <label>Select Department</label>
@@ -55,12 +55,12 @@
                     <div class="col-sm-9">
                         <div class="form-group">
 
-                            <input class="form-control" placeholder="Nume departament..." ng-model="dep.name" />
+                            <input class="form-control input-sm" placeholder="Nume departament..." ng-model="dep.name" />
                             <input type="hidden" ng-init="dep.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="dep.TeamID">
                         </div>
                     </div>
                     <div class="col-sm-3">
-                        <button type="button" class="btn btn-bee" ng-click="addDepartment(dep)" style="width:100%;">New</button>
+                        <button type="button" class="btn btn-bee btn-sm" ng-click="addDepartment(dep)" style="width:100%;">New</button>
                     </div>
                 </div>
             </form>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="panel-body" style="padding:0px;">
                     <table class="table table-hover table-condensed table-striped">
-                        
+
                         <tr ng-repeat="d in all_dep">
                             <td>{{d.nume_departament}}</td>
                             <td align="right"><button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></td>
@@ -80,10 +80,11 @@
             </div>
         </div>
         <div class="col-sm-8">
-            <h3 style="margin-top:0px;">Members</h3>
+            <div class="row">
+                <div class="col-sm-4"><h4 style="margin-top:0px;">Members</h4></div>
+                <div class="col-sm-8"><input class="form-control input-sm" ng-model="searchText" placeholder="Search..." /></div>
+            </div>
 
-
-            <hr />
             <table class="table table-hover table-condensed table-striped">
                 <thead>
                     <tr>
@@ -91,17 +92,17 @@
                         <th>Nume</th>
                         <th>Prenume</th>
                         <th>e-mail</th>
-                        
+                        <th>Telefon</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="membru in members">
+                    <tr ng-repeat="membru in members | filter:searchText">
                         <td>{{membru.ID}}</td>
                         <td>{{membru.nume_user}}</td>
                         <td>{{membru.prenume_user}}</td>
                         <td>{{membru.email}}</td>
-                        
+                        <td>{{membru.tel}}</td>
                         <td align="right"><a href="#" class="btn btn-bee btn-xs">Edit</a> <a href="#" class="btn btn-danger btn-xs">Sterge</a></td>
 
                     </tr>
