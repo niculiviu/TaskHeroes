@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
             <div class="well" style="background:#fff;">
-                <a ng-click="viewProject(proiect.ID_proiect)"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
+                <a ng-href="#/admin/project/{{proiect.ID_proiect}}"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
                 <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#/admin/profile/{{proiect.id_user_project_manager}}">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>
                 <hr style="margin:5px;" />
                 <span class="label label-primary">Start Date: {{proiect.start_date}}</span>
@@ -152,7 +152,7 @@
                         <div class="col-sm-12">
                             <label>Choose a Project Manager</label>
                             <select class="form-control" ng-model="newProject.ProjectManager">
-                                <option ng-repeat="member in members" value="{{member.ID}}">{{member.nume_user}}</option>
+                                <option ng-repeat="member in members" value="{{member.id}}">{{member.nume_user}}</option>
                             </select>
                         </div>
                         <input type="hidden" ng-init="newProject.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newProject.TeamID">
