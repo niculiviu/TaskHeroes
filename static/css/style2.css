@@ -1,0 +1,29 @@
+
+.background-1{
+	background-color: #149bc8;
+	width: 1436px;
+}
+
+.background-2{
+	background-color: #fdba13;
+	width: 1436px;
+	height: 1249px;
+}
+
+.jumbotron{
+	margin-bottom: 0px;
+}
+
+.background-1 p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.par{
+	margin: 0 auto; 
+	width: 580px; 
+	margin-bottom: 0px;
+}
