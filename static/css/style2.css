@@ -5,9 +5,15 @@
 }
 
 .background-2{
+	background-color: white;
+	width: 1436px;
+	overflow: auto;
+}
+
+.background-3{
 	background-color: #fdba13;
 	width: 1436px;
-	height: 1249px;
+	overflow: auto;
 }
 
 .jumbotron{
@@ -28,3 +34,20 @@
 	margin-bottom: 0px;
 	text-align: left!important;
 }
+
+.background-2 p {
+    color: #149bc8;
+    font-size: 20px;
+    margin-bottom: 40px;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.background-3 p {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+    padding-top: 80px;
+    text-align: center;
+}
+
