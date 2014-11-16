@@ -3,19 +3,21 @@
         <div style="float:left">
             <img src="img/default_user.png" style="height:30px; width:30px;" class="img-rounded" />
             <button class="btn btn-primary">Nume Prenume</button>
-        </div>
-        <img src="img/logo.png" height="30" />
-        <div class="navbar-right" style="margin-top:7px;">
-            <div class="dropdown">
-                <button class="btn btn-bee dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" ng-click="show_dropdown()">
+            
+                <button class="btn btn-bee dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-th-large"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation" class="dropdown-header">Proiecte</li>
                     <li role="presentation" ng-repeat="proiect in proiecte"><a role="menuitem" tabindex="-1" href="#">{{proiect.nume_proiect}}</a></li>
                 </ul>
+           
+        </div>
+        <img src="img/logo.png" height="30" />
+        <div style="float:right;">
+           
                 <a href="#" class="btn btn-danger" style="border-radius:0px;" ng-click="logout()"><span class="glyphicon glyphicon-off"></span></a>
-            </div>
+            
 
             <ul class="nav nav-pills nav-stacked"></ul>
         </div>
