@@ -12,6 +12,10 @@ html {
 }
 body {
   margin: 0;
+  
+}
+* {
+font-family: 'Hind', sans-serif;
 }
 article,
 aside,

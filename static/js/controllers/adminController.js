@@ -1,72 +1,84 @@
 ﻿'use strict';
 
-app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope',
-    function ($scope, loginService, $routeParams, adminService, $rootScope, $window, $location) {
+app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope', 'ngDialog',
+    function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog) {
         $scope.txt = 'Page Home';
         $rootScope.PageName = 'Dashboard';
-    $scope.logout = function () {
-        loginService.logout();
-    }
-    loginService.TeamID;
-    $scope.TeamID_root = loginService.TeamID;
-    console.log();
 
-    console.log($scope.TeamID_root);
-    adminService.getMembers($scope.TeamID_root, $rootScope);
-    adminService.getProject($scope.TeamID_root, $rootScope);
-    
+        $scope.viewProject = function (ID) {
+            $scope.value = ID;
+            ngDialog.open({
+                template: 'static/project.html',
+                controller: 'projectCtrl',
+                scope: $scope,
+                className: 'ngdialog-theme-default'
+            }).$result;
+        }
+        $scope.logout = function () {
+            loginService.logout();
+        }
+        loginService.TeamID;
+        $scope.TeamID_root = loginService.TeamID;
+        console.log();
 
-    $scope.today = function () {
-        $scope.dt = new Date();
-    };
-    $scope.today();
+        console.log($scope.TeamID_root);
+        adminService.getMembers($scope.TeamID_root, $rootScope);
+        adminService.getProject($scope.TeamID_root, $rootScope);
 
-    $scope.clear = function () {
-        $scope.dt = null;
-    };
+
+        $scope.today = function () {
+            $scope.dt = new Date();
+        };
+        $scope.today();
+
+        $scope.clear = function () {
+            $scope.dt = null;
+        };
 
         // Disable weekend selection
-    
 
-    $scope.toggleMin = function () {
-        $scope.minDate = $scope.minDate ? null : new Date();
-    };
-    $scope.toggleMin();
 
-    $scope.open = function ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
+        $scope.toggleMin = function () {
+            $scope.minDate = $scope.minDate ? null : new Date();
+        };
+        $scope.toggleMin();
 
-        $scope.opened = true;
-    };
+        $scope.open = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
 
-    $scope.open2 = function ($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
+            $scope.opened = true;
+        };
 
-        $scope.opened2 = true;
-    };
+        $scope.open2 = function ($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
 
-    $scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1
-    };
+            $scope.opened2 = true;
+        };
 
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
 
-    $scope.changeStartDate = function () {
-        $scope.newProject = {StartDate: $scope.dt}
-    }
-    
-    $scope.addProject = function (project) {
-        console.log(project);
-        adminService.addProject(project, $rootScope);
-        
-    }
+        $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+        $scope.format = $scope.formats[0];
 
-    $scope.removeProject = function (ID) {
-        console.log(ID);
-        adminService.removeProject(ID);
-    }
+        $scope.changeStartDate = function () {
+            $scope.newProject = { StartDate: $scope.dt }
+        }
+
+        $scope.addProject = function (project) {
+            console.log(project);
+            adminService.addProject(project, $rootScope);
+
+        }
+
+        $scope.removeProject = function (ID) {
+            console.log(ID);
+            adminService.removeProject(ID);
+        }
+
+
     }]);

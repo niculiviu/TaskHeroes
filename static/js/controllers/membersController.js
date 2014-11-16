@@ -24,4 +24,13 @@
         $scope.chooseDep = function (data) {
             $scope.searchText = data;
         }
+
+        $scope.viewProject = function (ID) {
+            $scope.value = ID;
+            ngDialog.open({
+                template: 'static/proiect.html',
+                controller: 'projectCtrl',
+                scope: $scope
+            });
+        }
     }]);
