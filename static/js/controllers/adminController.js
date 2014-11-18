@@ -1,10 +1,10 @@
 ﻿'use strict';
 
-app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope', 'ngDialog',
-    function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog) {
+app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope', 'ngDialog','sessionService',
+    function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog, sessionService) {
         $scope.txt = 'Page Home';
         $rootScope.PageName = 'Dashboard';
-
+        $rootScope.projectID=''
         $scope.viewProject = function (ID) {
             $scope.value = ID;
             ngDialog.open({
@@ -80,5 +80,7 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminServic
             adminService.removeProject(ID);
         }
 
-
+        $scope.goToProject = function (projectID) {
+            $rootScope.ProjectID = projectID;
+        }
     }]);

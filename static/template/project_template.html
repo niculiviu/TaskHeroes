@@ -22,12 +22,12 @@
             <ul class="nav nav-pills nav-stacked"></ul>
         </div>
     </div>
-    <div class="col-sm-12">
+    <div class="col-sm-12" ng-repeat="pro in SingleProiect">
         <div class="page-header" style="margin-top:0px;">
             <h3>
-                Project Name <small >
+                {{pro.nume_proiect}} <small>
                     <img src="img/default_user.png" style="height:20px; width:20px;" />
-                    Project manager
+                    {{pro.nume_user}} {{pro.prenume_user}}
                 </small>
             </h3>
         </div>
@@ -78,7 +78,7 @@
                 <b>Project Description</b>
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla auctor auctor arcu in tincidunt. Vestibulum fringilla efficitur facilisis. Morbi vel blandit nisi. Nullam nec semper orci. Ut vel commodo tortor. Phasellus a faucibus elit. Nam non ante dictum, rutrum mauris ac, volutpat nisl. 
+                        {{pro.descriere}}
                     </div>
                 </div>
                 <b>Project Informations</b>
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
         </div>
 
