@@ -1,12 +1,16 @@
 ﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:70px;">
-    <h3 style="margin-top:0px;">Projects <small>In Progress</small> <button type="button" class="btn btn-bee btn-sm" data-toggle="modal" data-target="#NewProjectModal"><span class="glyphicon glyphicon-plus"></span> Add Project</button></h3>
-    <hr />
+
+    <blockquote style="background:#fff;border-left: 5px solid #fdba13;">
+        <h3 style="margin:0px;">Projects  <button type="button" class="btn btn-bee" data-toggle="modal" data-target="#NewProjectModal"><span class="glyphicon glyphicon-plus"></span> Add Project</button></h3>
+    </blockquote>
     <div>
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
             <div class="well" style="background:#fff;">
-                <a ng-href="#/admin/project/{{proiect.ID_proiect}}" ng-click="goToProject(proiect.ID_proiect)"><h4 style="margin-top:5px;">{{proiect.nume_proiect}}</h4></a>
+                <a ng-href="#/admin/project/{{proiect.ID_proiect}}" ng-click="goToProject(proiect.ID_proiect)">
+                    <h3 style="margin-top:0px;">{{proiect.nume_proiect}}</h3>
+                </a>
                 <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#/admin/profile/{{proiect.id_user_project_manager}}">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>
                 <hr style="margin:5px;" />
                 <span class="label label-primary">Start Date: {{proiect.start_date}}</span>
@@ -18,95 +22,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-5">
-            <div class="page-header" style="margin-top:10px;margin-bottom:0px;">
-                <h4>Past Projects</h4>
-            </div>
-            <table class="table table-condensed table-striped table-hover">
-                <tr>
-                    <td>Project Name</td>
-                    <td>23/01/2013</td>
-                    <td>23/01/2013</td>
-                    <td><a href="#" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a href="#" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-                <tr>
-                    <td>Project Name</td>
-                    <td>23/01/2013</td>
-                    <td>23/01/2013</td>
-                    <td><a href="#" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a href="#" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-                <tr>
-                    <td>Project Name</td>
-                    <td>23/01/2013</td>
-                    <td>23/01/2013</td>
-                    <td><a href="#" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a href="#" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-                <tr>
-                    <td>Project Name</td>
-                    <td>23/01/2013</td>
-                    <td>23/01/2013</td>
-                    <td><a href="#" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a href="#" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-                <tr>
-                    <td>Project Name</td>
-                    <td>23/01/2013</td>
-                    <td>23/01/2013</td>
-                    <td><a href="#" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a href="#" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-trash"></span></a></td>
-                </tr>
-            </table>
-        </div>
 
-        <div class="col-md-7">
-            <div class="page-header" style="margin-top:10px;margin-bottom:0px;">
-                <h4>Top members</h4>
-            </div>
-            <table class="table table-condensed table-striped table-hover">
-                <tr>
-                    <td><img src="img/default_user.png" style="height:20px; width:20px;" /></td>
-                    <td>Nume</td>
-                    <td>Prenume</td>
-                    <td>Puncte</td>
-                    <td>Nume Erou</td>
-                </tr>
-                <tr>
-                    <td><img src="img/default_user.png" style="height:20px; width:20px;" /></td>
-                    <td>Nume</td>
-                    <td>Prenume</td>
-                    <td>Puncte</td>
-                    <td>Nume Erou</td>
-                </tr>
-                <tr>
-                    <td><img src="img/default_user.png" style="height:20px; width:20px;" /></td>
-                    <td>Nume</td>
-                    <td>Prenume</td>
-                    <td>Puncte</td>
-                    <td>Nume Erou</td>
-                </tr>
-                <tr>
-                    <td><img src="img/default_user.png" style="height:20px; width:20px;" /></td>
-                    <td>Nume</td>
-                    <td>Prenume</td>
-                    <td>Puncte</td>
-                    <td>Nume Erou</td>
-                </tr>
-                <tr>
-                    <td><img src="img/default_user.png" style="height:20px; width:20px;" /></td>
-                    <td>Nume</td>
-                    <td>Prenume</td>
-                    <td>Puncte</td>
-                    <td>Nume Erou</td>
-                </tr>
-            </table>
-        </div>
-
-
-    </div>
 </div>
 
 <div class="modal fade " id="NewProjectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -146,7 +62,7 @@
                                 </span>
                             </p>
                         </div>
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-sm-12">

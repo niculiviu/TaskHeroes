@@ -1,36 +1,15 @@
-﻿<div>
-    <div class="col-sm-12"  align="center" style="background:#149bc8 !important;padding:7px; height:50px;">
-        <div style="float:left">
-            <img src="img/default_user.png" style="height:30px; width:30px;" class="img-rounded" />
-            <button class="btn btn-primary">Nume Prenume</button>
-            
-                <button class="btn btn-bee dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                    <span class="glyphicon glyphicon-th-large"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation" class="dropdown-header">Proiecte</li>
-                    <li role="presentation" ng-repeat="proiect in proiecte"><a role="menuitem" tabindex="-1" href="#">{{proiect.nume_proiect}}</a></li>
-                </ul>
-           
-        </div>
-        <img src="img/logo.png" height="30" />
-        <div style="float:right;">
-           
-                <a href="#" class="btn btn-danger" style="border-radius:0px;" ng-click="logout()"><span class="glyphicon glyphicon-off"></span></a>
-            
+﻿<div menu-bar></div>
+<div style="margin-top:60px;">
 
-            <ul class="nav nav-pills nav-stacked"></ul>
-        </div>
-    </div>
     <div class="col-sm-12" ng-repeat="pro in SingleProiect">
-        <div class="page-header" style="margin-top:0px;">
-            <h3>
-                {{pro.nume_proiect}} <small>
+        <blockquote style="background:#fff;border-left: 5px solid #fdba13;">
+            <h3 style="margin:0px;">
+                {{pro.nume_proiect}} <span style="font-size:14px;">
                     <img src="img/default_user.png" style="height:20px; width:20px;" />
                     {{pro.nume_user}} {{pro.prenume_user}}
-                </small>
+                </span>
             </h3>
-        </div>
+        </blockquote>
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">

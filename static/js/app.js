@@ -9,7 +9,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/organization/', { templateUrl: 'static/organization_admin.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/profile/:ID/', { templateUrl: 'static/profile.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/settings/', { templateUrl: 'static/settings.html', controller: 'adminCtrl' });
-    $routeProvider.when('/admin/project/:ID/', { templateUrl: 'static/project.html', controller: 'projectCtrl' });
+    $routeProvider.when('/admin/project/:ID', { templateUrl: 'static/project.html', controller: 'projectCtrl' });
     $routeProvider.when('/admin/settings/', { templateUrl: 'static/settings.html', controller: 'adminCtrl' });
     $routeProvider.when('/', { templateUrl: 'static/index.html', controller: 'indexCtrl' });
     $routeProvider.otherwise({ redirectTo: '/login' });

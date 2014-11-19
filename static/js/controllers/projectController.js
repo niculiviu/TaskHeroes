@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectService', '$rootScope','adminService',
+app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectService', '$rootScope', 'adminService', '$routeParams',
     function ($scope, loginService, $routeParams, projectService, $rootScope,adminService) {
         $scope.txt = 'Page Home';
         $scope.logout = function () {
@@ -12,11 +12,13 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
 
         $scope.projectID = $rootScope.ProjectID;
 
-        
+        $scope.param = $routeParams.$$url;
+        var url = $scope.param.split('/');
+        console.log(url[3]);
 
         adminService.getMembers($scope.TeamID_root, $rootScope);
         adminService.getProject($scope.TeamID_root, $rootScope);
 
-        projectService.getSingleProject($scope.projectID, $rootScope);
+        projectService.getSingleProject(url[3], $rootScope);
        
     }]);
