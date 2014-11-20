@@ -18,6 +18,10 @@ background:#fff; color:#000; margin:4px 4px 0px 4px;
     .task:hover {
     background:#fbfbfb;
     }
+
+a:hover{
+text-decoration:none;
+}
 .project-header {
 border-bottom:solid 1px #008fbe !important;
 }

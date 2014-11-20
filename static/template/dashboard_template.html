@@ -7,7 +7,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
-            <div class="well" style="background:#fff;">
+            <div class="well well-sm" style="background:#fff;">
                 <a ng-href="#/admin/project/{{proiect.ID_proiect}}" ng-click="goToProject(proiect.ID_proiect)">
                     <h3 style="margin-top:0px;">{{proiect.nume_proiect}}</h3>
                 </a>

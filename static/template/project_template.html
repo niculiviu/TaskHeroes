@@ -3,16 +3,30 @@
 
     <div class="col-sm-12" ng-repeat="pro in SingleProiect">
         <blockquote style="background:#fff;border-left: 5px solid #fdba13;">
-            <h3 style="margin:0px;">
-                {{pro.nume_proiect}} <span style="font-size:14px;">
-                    <img src="img/default_user.png" style="height:20px; width:20px;" />
-                    {{pro.nume_user}} {{pro.prenume_user}}
-                </span>
-            </h3>
+            <b style="margin:0px;">
+                {{pro.nume_proiect}}
+                <img src="img/default_user.png" style="height:20px; width:20px;" />
+                {{pro.nume_user}} {{pro.prenume_user}}
+            </b>
         </blockquote>
         <div class="row">
             <div class="col-sm-9">
                 <div class="row">
+                    <div class="col-sm-3">
+
+                        <div class="well well-sm" style="margin:0px">
+                            <b style="margin:0px;color:#9c9c9c;">Add New list</b>
+                            <form>
+                                <div class="form-group" style="margin-bottom:3px;">
+                                    <input class="form-control input-sm" placeholder="Name..." ng-model="new_list.name" />
+                                </div>
+                                <div class="form-group" style="margin-bottom:3px;">
+                                    <input class="form-control input-sm" placeholder="Manager..." ng-model="new_list.manager" />
+                                </div>
+                                <button class="btn btn-bee btn-sm ">Save</button>
+                            </form>
+                        </div>
+                    </div>
                     <div class="col-sm-3">
                         <div class="panel panel-default">
                             <div class="panel-heading"><b style="color:#9c9c9c;">PR</b> <div style="float:right;"><img src="img/default_user.png" style="height:20px; width:20px;" /></div></div>
@@ -42,9 +56,7 @@
                         </div>
                     </div>
 
-                    <div class="col-sm-3">
-                        <div class="well well-sm" style="margin:0px"><a href="#">Add New board...</a></div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-sm-3">
