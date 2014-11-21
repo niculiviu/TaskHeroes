@@ -22,7 +22,7 @@
                     </button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                         <li role="presentation" class="dropdown-header">Proiecte</li>
-                        <li role="presentation" ng-repeat="proiect in proiecte"><a role="menuitem" tabindex="-1" href="#">{{proiect.nume_proiect}}</a></li>
+                        <li role="presentation" ng-repeat="proiect in proiecte"><a role="menuitem" tabindex="-1" ng-href="#/admin/project/{{proiect.ID_proiect}}">{{proiect.nume_proiect}}</a></li>
                     </ul>
                     <a href="#" class="btn btn-danger" style="border-radius:0px;" ng-click="logout()"><span class="glyphicon glyphicon-off"></span></a>
                 </div>
