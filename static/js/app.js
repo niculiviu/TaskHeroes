@@ -12,6 +12,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/project/:ID', { templateUrl: 'static/project.html', controller: 'projectCtrl' });
     $routeProvider.when('/admin/settings/', { templateUrl: 'static/settings.html', controller: 'adminCtrl' });
     $routeProvider.when('/', { templateUrl: 'static/index.html', controller: 'indexCtrl' });
+    $routeProvider.when('/noPermision/', { templateUrl: 'static/noPermision.html', controller: 'indexCtrl' });
     $routeProvider.otherwise({ redirectTo: '/login' });
 
 }]);
