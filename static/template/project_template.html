@@ -15,7 +15,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="list-group" style="border-radius:0px;">
+                <div class="list-group" style="border-radius:0px;" ui-sortable>
                     <a ng-click="goToAll()" style="cursor:pointer; border:none;" class="list-group-item"><b><i class="fa fa-list-ul"></i> All</b></a>
                     <a ng-repeat="activity in activities" ng-click="goToActivity(activity.nume_activitate)" style="cursor:pointer;border:none;" class="list-group-item">
                         <i class="fa fa-list-ul"></i> {{activity.nume_activitate}}
@@ -54,17 +54,19 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tr ng-repeat="task in Tasks | filter:search">
-                            <td><a ng-click="viewTask(task)" style="cursor:pointer;"><i class="fa fa-tasks"></i> {{task.titlu}}</a></td>
-                            <td>{{task.nume_activitate}}</td>
-                            <td width="70"><span class="label label-default">done</span></td>
-                            <td width="70">{{task.punctaj_dificultate}}</td>
-                            <td width="70"><a href="" class="btn btn-primary btn-xs">I volunteer!</a></td>
-                            <td width="70">
-                                <a ng-click="viewTask(task)" style="cursor:pointer;" class="btn btn-link btn-xs"><i class="fa fa-pencil-square-o"></i></a>
-                                <a href="" class="btn btn-link btn-xs"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
+                        <tbody ui-sortable>
+                            <tr ng-repeat="task in Tasks | filter:search">
+                                <td><a ng-click="viewTask(task)" style="cursor:pointer;"><i class="fa fa-tasks"></i> {{task.titlu}}</a></td>
+                                <td>{{task.nume_activitate}}</td>
+                                <td width="70"><span class="label label-default">done</span></td>
+                                <td width="70">{{task.punctaj_dificultate}}</td>
+                                <td width="70"><a href="" class="btn btn-primary btn-xs">I volunteer!</a></td>
+                                <td width="70">
+                                    <a ng-click="viewTask(task)" style="cursor:pointer;" class="btn btn-link btn-xs"><i class="fa fa-pencil-square-o"></i></a>
+                                    <a href="" class="btn btn-link btn-xs"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
 
                 </div>

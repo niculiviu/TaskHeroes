@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var app = angular.module('task_heroes', ['ngRoute', 'ui.bootstrap','ngDialog']);
+var app = angular.module('task_heroes', ['ngRoute', 'ui.bootstrap', 'ngDialog', 'ui.sortable']);
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/login', { templateUrl: 'static/login.html', controller: 'loginCtrl' });
     $routeProvider.when('/admin/', { templateUrl: 'static/dashboard.html', controller: 'adminCtrl' });
