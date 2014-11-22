@@ -3,9 +3,7 @@
 <div ng-repeat="pro in SingleProiect">
     <div project-menu></div>
     <div class="col-sm-12">
-
         <div class="row">
-
             <div class="col-sm-2 sidebar-pro" style="background-image:url('img/side_bg.png');">
                 <div class="well well-sm">
                     <div class="row">
@@ -17,40 +15,57 @@
                         </div>
                     </div>
                 </div>
-                <ul class="nav nav-sidebar">
-                    <li style="border-bottom: 1px solid #fff;" class="active"><a href="#/admin/"><i class="fa fa-list-ul"></i> All</a></li>
-                    <li style="border-bottom: 1px solid #fff;" ng-repeat="activity in activities">
-                        <a href="#/admin/"><i class="fa fa-list-ul"></i> {{activity.nume_activitate}} <div class="pull-right"><small>No Manager</small></div></a>
-                    </li>
-                </ul>
+                <div class="list-group" style="border-radius:0px;">
+                    <a ng-click="goToAll()" style="cursor:pointer; border:none;" class="list-group-item"><b><i class="fa fa-list-ul"></i> All</b></a>
+                    <a ng-repeat="activity in activities" ng-click="goToActivity(activity.nume_activitate)" style="cursor:pointer;border:none;" class="list-group-item">
+                        <i class="fa fa-list-ul"></i> {{activity.nume_activitate}}
+                        <span class="badge">{{howManyTasks(Tasks,activity.nume_activitate)}}</span>
+                    </a>
+                </div>
+
             </div>
             <div class="col-sm-7">
                 <div class="row">
                     <div class="well well-sm">
                         <div class="row">
-                            <div class="col-xs-10" style="padding-right:0px;">
-                                <input class="form-control" style="width:100%; border-radius:0px;" placeholder="New Task..." />
+                            <div class="col-xs-6" style="padding-right:0px;">
+                                <input class="form-control" style="width:100%; border-radius:0px;" placeholder="New Task..." ng-model="taskName" />
+                            </div>
+                            <div class="col-xs-4" style="padding:0px;">
+                                <select ng-model="taskActivity" ng-selected="search" ng-options="activity.nume_activitate for activity in activities track by activity.nume_activitate" class="form-control" style="width:100%; border-radius:0px;" ng-change="goToActivity(taskActivity.nume_activitate)">
+                                    <option value="" ng-model="seach">-- Choose activity --</option>
+                                </select>
                             </div>
                             <div class="col-xs-2" style="padding-left:0px;">
-                                <a class="btn btn-bee" style="width:100%; border-radius:0px;">Add</a>
+                                <a class="btn btn-bee" style="width:100%; border-radius:0px;" ng-click="addTask(taskName,taskActivity,pro.ID_proiect)">Add</a>
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Tasks</div>
-                        <div class="panel-body" style="padding:0px;">
-                            <ul class="list-group" style="margin:0px;border-radius:0px;">
-                                <li class="list-group-item"><span class="badge">14</span>Cras justo odio</li>
-                                <li class="list-group-item"><span class="badge">14</span>Dapibus ac facilisis in</li>
-                                <li class="list-group-item"><span class="badge">14</span>Morbi leo risus</li>
-                                <li class="list-group-item"><span class="badge">14</span>Porta ac consectetur ac</li>
-                                <li class="list-group-item"><span class="badge">14</span>Vestibulum at eros</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>List</th>
+                                <th width="70">Status</th>
+                                <th width="70">Points</th>
+                                <th width="70"></th>
+                                <th width="70">
 
-
-
+                                </th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="task in Tasks | filter:search">
+                            <td><a ng-click="viewTask(task)" style="cursor:pointer;"><i class="fa fa-tasks"></i> {{task.titlu}}</a></td>
+                            <td>{{task.nume_activitate}}</td>
+                            <td width="70"><span class="label label-default">done</span></td>
+                            <td width="70">{{task.punctaj_dificultate}}</td>
+                            <td width="70"><a href="" class="btn btn-primary btn-xs">I volunteer!</a></td>
+                            <td width="70">
+                                <a ng-click="viewTask(task)" style="cursor:pointer;" class="btn btn-link btn-xs"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="" class="btn btn-link btn-xs"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                    </table>
 
                 </div>
             </div>
@@ -86,6 +101,7 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+<div task-dialog></div>

@@ -1,0 +1,33 @@
+﻿<script type="text/ng-template" id="TaskDialog.html">
+    <p>
+        Dificulty Points:
+
+        
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(1,task.ID_task,task)" style="cursor:pointer;color:white;">1</a>
+        </label>
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(2,task.ID_task,task)" style="cursor:pointer;color:white;">2</a>
+        </label>
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(3,task.ID_task,task)" style="cursor:pointer;color:white;">3</a>
+        </label>
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(5,task.ID_task,task)" style="cursor:pointer;color:white;">5</a>
+        </label>
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(8,task.ID_task,task)" style="cursor:pointer;color:white;">8</a>
+        </label>
+        <label class="label label-default" style="margin: 2px;">
+            <a ng-click="addDif(12,task.ID_task,task)" style="cursor:pointer;color:white;">12</a>
+        </label>
+
+    </p>
+    <h3>{{task.titlu}} ({{task.punctaj_dificultate}})</h3>
+
+    <p>
+        <a href="">Add Description</a>
+    </p>
+
+    <button class="btn btn-bee btn-lg" style="width:100%;">I VOLUNTEER</button>
+</script>

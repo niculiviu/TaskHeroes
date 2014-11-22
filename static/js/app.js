@@ -12,7 +12,6 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/project/:ID', { templateUrl: 'static/project.html', controller: 'projectCtrl' });
     $routeProvider.when('/admin/project/:ID/edit', { templateUrl: 'static/edit_project.html', controller: 'editprojectCtrl' });
     $routeProvider.when('/admin/project/:ID/statistics', { templateUrl: 'static/statistics_project.html', controller: 'statisticsprojectCtrl' });
-    $routeProvider.when('/admin/project/:ID/:activityID', { templateUrl: 'static/activity.html', controller: 'activityCtrl' });
     $routeProvider.when('/admin/settings/', { templateUrl: 'static/settings.html', controller: 'adminCtrl' });
     $routeProvider.when('/', { templateUrl: 'static/index.html', controller: 'indexCtrl' });
     $routeProvider.when('/noPermision/', { templateUrl: 'static/noPermision.html', controller: 'indexCtrl' });

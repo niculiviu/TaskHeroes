@@ -11,3 +11,9 @@ app.directive('projectMenu', function () {
         templateUrl: 'static/template/project_menu_template.html'
     }
 });
+
+app.directive('taskDialog', function () {
+    return {
+        templateUrl: 'static/template/TaskDialog.html'
+    }
+});

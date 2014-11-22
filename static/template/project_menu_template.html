@@ -1,14 +1,14 @@
 ﻿<nav class="navbar navbar-custom" role="navigation" style="margin-top:50px;">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" ng-model="pageTitle">
+            <a class="navbar-brand" href="#/admin/project/{{pro.ID_proiect}}/" ng-model="pageTitle">
                 {{pro.nume_proiect}}
             </a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Tasks <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Edit Project</a></li>
-            <li><a href="#">Statistics</a></li>
+            <li class="active"><a href="#/admin/project/{{pro.ID_proiect}}/">Tasks <span class="sr-only">(current)</span></a></li>
+            <li><a href="#/admin/project/{{pro.ID_proiect}}/edit">Edit Project</a></li>
+            <li><a href="#/admin/project/{{pro.ID_proiect}}/statistics">Statistics</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
             <div class="navbar-header">

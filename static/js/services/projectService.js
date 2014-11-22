@@ -33,7 +33,24 @@ app.factory('projectService', ['$http', '$location', 'sessionService', function 
             $http.post("php/getProjectMembers.php?ID="+ID).success(function (data) {
                 $rootScope.ProjectMembers = data;
             });
+        },
+        addTask: function (json, $rootScope) {
+            $http.post("php/addTask.php", json).success(function (data) {
+                myFunctions.getTasks(data, $rootScope);
+            });
+        },
+        getTasks: function (ID, $rootScope) {
+            $http.post("php/getTasks.php?ID=" + ID).success(function (data) {
+                $rootScope.Tasks = data;
+            });
+        },
+        addDif: function (json, $rootScope,project_ID) {
+            $http.post("php/addDif.php", json).success(function (data) {
+                myFunctions.getTasks(project_ID, $rootScope);
+                
+            });
         }
+        
     }
     return myFunctions;
 
