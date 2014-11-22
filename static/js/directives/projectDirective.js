@@ -5,3 +5,9 @@ app.directive('project', function () {
         templateUrl: 'static/template/project_template.html'
     }
 });
+
+app.directive('projectMenu', function () {
+    return {
+        templateUrl: 'static/template/project_menu_template.html'
+    }
+});

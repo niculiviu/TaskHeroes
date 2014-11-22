@@ -1,10 +1,11 @@
 ﻿'use strict';
 
-app.controller('adminCtrl', ['$scope', 'loginService', '$location', 'adminService', '$rootScope', 'ngDialog','sessionService',
-    function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog, sessionService) {
+app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService', '$rootScope', 'ngDialog', 'sessionService',
+    function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog, $route, sessionService) {
         $scope.txt = 'Page Home';
         $rootScope.PageName = 'Dashboard';
-        $rootScope.projectID=''
+        $rootScope.projectID = ''
+        //$route.reload();
         $scope.viewProject = function (ID) {
             $scope.value = ID;
             ngDialog.open({

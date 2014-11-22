@@ -1,47 +1,38 @@
 ﻿<div menu-bar></div>
 
 <div ng-repeat="pro in SingleProiect">
-    <nav class="navbar navbar-custom" role="navigation" style="margin-top:50px;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    {{pro.nume_proiect}}
-                </a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Tasks <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Edit Project</a></li>
-                <li><a href="#">Statistics</a></li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">
-                        <img src="img/default_user.png" style="height:20px; width:20px;" /> {{pro.nume_user}} {{pro.prenume_user}}
-                    </a>
-                </div>
-            </ul>
-        </div>
-    </nav>
+    <div project-menu></div>
     <div class="col-sm-12">
 
         <div class="row">
+
             <div class="col-sm-2 sidebar-pro" style="background-image:url('img/side_bg.png');">
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-xs-8" style="padding-right:0px;">
+                            <input class="form-control" style="width:100%;border-radius:0px;" placeholder="New List..." ng-model="list" />
+                        </div>
+                        <div class="col-xs-4" style="padding-left:0px;">
+                            <a class="btn btn-bee" style="width:100%; border-radius:0px;" ng-click="newList(list,pro.ID_proiect)">Add</a>
+                        </div>
+                    </div>
+                </div>
                 <ul class="nav nav-sidebar">
-                    <li ng-class="PageName =='Dashboard' ? 'active' : ''" style="border-bottom: 1px solid #fff;"><a href="#/admin/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-                    <li ng-class="PageName =='Members' ? 'active' : ''" style="border-bottom: 1px solid #fff;"><a href="#/admin/members/"><i class="fa fa-users"></i> Members</a></li>
-                    <li><a href="#/admin/meetings/" style="border-bottom: 1px solid #fff;"><i class="fa fa-check-square-o"></i> Meetings </a></li>
-                    <li><a href="#" style="border-bottom: 1px solid #fff;"><i class="fa fa-bullhorn"></i> Organization Profile</a></li>
+                    <li style="border-bottom: 1px solid #fff;" class="active"><a href="#/admin/"><i class="fa fa-list-ul"></i> All</a></li>
+                    <li style="border-bottom: 1px solid #fff;" ng-repeat="activity in activities">
+                        <a href="#/admin/"><i class="fa fa-list-ul"></i> {{activity.nume_activitate}} <div class="pull-right"><small>No Manager</small></div></a>
+                    </li>
                 </ul>
             </div>
             <div class="col-sm-7">
                 <div class="row">
                     <div class="well well-sm">
                         <div class="row">
-                            <div class="col-xs-10">
-                                <input class="form-control" style="width:100%;" placeholder="New Task..." />
+                            <div class="col-xs-10" style="padding-right:0px;">
+                                <input class="form-control" style="width:100%; border-radius:0px;" placeholder="New Task..." />
                             </div>
-                            <div class="col-xs-2">
-                                <a class="btn btn-bee" style="width:100%;">Add</a>
+                            <div class="col-xs-2" style="padding-left:0px;">
+                                <a class="btn btn-bee" style="width:100%; border-radius:0px;">Add</a>
                             </div>
                         </div>
                     </div>
@@ -57,17 +48,34 @@
                             </ul>
                         </div>
                     </div>
-                    
-                   
+
+
 
 
                 </div>
             </div>
             <div class="col-sm-3">
-                
+                <script type="text/ng-template" id="customTemplate.html">
+                    <a>
+                        <img src="img/default_user.png" style="height:20px; width:20px;" />
+                        <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+                    </a>
+                </script>
+                <div class="well well-sm">
+                    <div class="row">
+                        <div class="col-xs-8" style="padding-right:0px;">
+                            <input type="text" style="width:100%; border-radius:0px;" ng-model="customSelected" placeholder="Add member ..." typeahead="member as member.nume_user+' '+member.prenume_user for member in members | filter:$viewValue" typeahead-template-url="customTemplate.html" class="form-control">
+                        </div>
+                        <div class="col-xs-4" style="padding-left:0px;">
+                            <a class="btn btn-bee" style="width:100%; border-radius:0px;" ng-click="addMemberToProject(customSelected,pro.ID_proiect)">Add</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <input class="form-control" placeholder="search members" />
+                        <span ng-repeat="projMember in ProjectMembers" style="padding:2px;">
+                            <img src="img/default_user.png" style="height:25px; width:25px;" tooltip-placement="top" tooltip="{{projMember.nume_user}} {{projMember.prenume_user}}" />
+                        </span>
                     </div>
                 </div>
                 <b>Project Description</b>

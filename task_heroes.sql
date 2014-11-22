@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gazda: localhost
--- Timp de generare: 15 Noi 2014 la 17:17
+-- Timp de generare: 22 Noi 2014 la 15:27
 -- Versiune server: 5.6.12-log
 -- Versiune PHP: 5.4.16
 
@@ -34,7 +34,18 @@ CREATE TABLE IF NOT EXISTS `activitate` (
   `id_user_manager_activitate` int(11) NOT NULL,
   `nume_activitate` varchar(225) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Salvarea datelor din tabel `activitate`
+--
+
+INSERT INTO `activitate` (`ID`, `id_proiect`, `id_user_manager_activitate`, `nume_activitate`) VALUES
+(1, 51, -1, 'Lista 1'),
+(2, 51, -1, 'aSDSA'),
+(3, 51, -1, 'ADFASDAS'),
+(4, 51, -1, 'Liviu'),
+(5, 52, -1, 'Lista 1 Artandar');
 
 -- --------------------------------------------------------
 
@@ -47,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `departament` (
   `id_team` int(11) NOT NULL,
   `nume_departament` varchar(225) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Salvarea datelor din tabel `departament`
@@ -62,7 +73,9 @@ INSERT INTO `departament` (`ID`, `id_team`, `nume_departament`) VALUES
 (7, 2, 'Social'),
 (9, 2, 'Studii Mate'),
 (10, 2, 'Studii TI'),
-(11, 2, 'Comisia De Imagine si Poiecte');
+(11, 2, 'Comisia De Imagine si Poiecte'),
+(12, 2, 'asd'),
+(13, 3, 'Oev');
 
 -- --------------------------------------------------------
 
@@ -80,6 +93,47 @@ CREATE TABLE IF NOT EXISTS `erou` (
 -- --------------------------------------------------------
 
 --
+-- Structura de tabel pentru tabelul `lista`
+--
+
+CREATE TABLE IF NOT EXISTS `lista` (
+  `id_lista` int(11) NOT NULL AUTO_INCREMENT,
+  `id_team` int(11) NOT NULL,
+  `nume_lista` varchar(255) NOT NULL,
+  `id_manager` int(11) NOT NULL,
+  PRIMARY KEY (`id_lista`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structura de tabel pentru tabelul `membrii_proiect`
+--
+
+CREATE TABLE IF NOT EXISTS `membrii_proiect` (
+  `ID_a` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_project` int(11) NOT NULL,
+  `ID_user` int(11) NOT NULL,
+  PRIMARY KEY (`ID_a`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+
+--
+-- Salvarea datelor din tabel `membrii_proiect`
+--
+
+INSERT INTO `membrii_proiect` (`ID_a`, `ID_project`, `ID_user`) VALUES
+(1, 51, 5),
+(2, 51, 11),
+(3, 51, 12),
+(4, 51, 10),
+(5, 51, 3),
+(6, 52, 5),
+(7, 53, 11),
+(8, 53, 12);
+
+-- --------------------------------------------------------
+
+--
 -- Structura de tabel pentru tabelul `proiect`
 --
 
@@ -92,20 +146,27 @@ CREATE TABLE IF NOT EXISTS `proiect` (
   `descriere` varchar(225) DEFAULT NULL,
   `id_team` int(11) NOT NULL,
   PRIMARY KEY (`ID_proiect`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=66 ;
 
 --
 -- Salvarea datelor din tabel `proiect`
 --
 
 INSERT INTO `proiect` (`ID_proiect`, `id_user_project_manager`, `nume_proiect`, `start_date`, `end_date`, `descriere`, `id_team`) VALUES
-(43, 6, 'sd', '2014-11-14', '2014-11-27', 'asds', 2),
+(53, 12, 'Balul Bobocilor', '2014-11-18', '2014-11-29', 'asdasdas', 2),
+(54, 5, 'Ratusca', '2014-11-18', '2014-11-29', 'asdasdas', 2),
+(55, 11, 'Deschiderea anului', '2014-11-18', '2014-11-29', 'asdasdas', 2),
+(52, 11, 'Arta n Dar', '2014-11-18', '2014-12-06', 'ArtÄƒâ€™n Dar este un eveniment caritabil, marca ASMI, aflat deja la ediÈ›ia a treia, prin care promovÄƒm cultura È™i arta Ã®n rÃ¢ndul studenÈ›ilor È™i reuÈ™im sÄƒ ne unim forÈ›ele pentru a ajuta persoanele care au nevoie de ', 2),
+(47, 2, 'wwwwww', '2014-11-15', '2014-11-18', 'wwww', 2),
+(46, 0, 'kkljl', '2014-11-19', '2014-11-24', 'asdad', 2),
 (37, 0, 'qweqw', '2014-11-07', '2014-12-06', 'qqweqw', 2),
-(42, 3, 'were', '2014-11-14', '2014-11-27', 'asdas', 2),
-(40, 5, 'Lool', '2014-11-12', '2014-11-29', 'asdsa', 2),
-(41, 3, 'Balul Bobocilor', '2014-11-14', '2014-12-06', 'asdasa', 2),
-(36, 5, 'imSMART', '2014-11-07', '2014-11-22', 'asdadasdas', 2),
-(39, 5, 'Artandar', '2014-11-13', '2014-11-15', 'asda', 2);
+(45, 0, 'sdf', '2014-11-15', '2014-11-26', 'sfsdfs', 2),
+(44, 0, 'lkjfsdfq', '2014-11-15', '2014-11-29', 'sdfsdfsd', 2),
+(51, 5, 'imSMART', '2014-11-17', '2014-12-06', 'Informatics and Mathematics Students Moving Ahead in Research and Technology este un proiect realizat de AsociaÅ£ia StudenÅ£ilor la MatematicÄƒ ÅŸi InformaticÄƒ (ASMI) È™i Facultatea de MatematicÄƒ ÅŸi InformaticÄƒ din cadrul', 2),
+(56, 5, 'Bumtzi!', '2014-11-18', '2014-11-29', 'asdasdas', 2),
+(57, 5, 'Bumtzi! 2', '2014-11-18', '2014-11-29', 'asdasdas', 2),
+(64, 0, 'PROIECT', '2014-11-20', '2014-12-06', '1234', 3),
+(65, 14, '1234', '2014-11-20', '2014-11-29', '1234', 3);
 
 -- --------------------------------------------------------
 
@@ -197,7 +258,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_erou` int(11) NOT NULL,
   `join_date` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Salvarea datelor din tabel `user`
@@ -212,7 +273,9 @@ INSERT INTO `user` (`ID`, `tel`, `id_team`, `nume_user`, `prenume_user`, `email`
 (9, 0, 6, 'aaa', 'aaa', 'aa@aa.com', 'a', 1, NULL, 1, '2014-11-02'),
 (10, 741011240, 2, 'Pixel', 'Pixel', 'test@test', '12345', 0, 6, 0, '2014-11-15'),
 (11, 745244578, 2, 'Ancuta', 'Diana-Dobos', 'ancuta@dobos.com', '123456', 0, 3, 0, '2014-11-15'),
-(12, 745255892, 2, 'Andreea', 'Popa', 'pcandreea@gmail.com', '12345', 0, 6, 0, '2014-11-15');
+(12, 745255892, 2, 'Andreea', 'Popa', 'pcandreea@gmail.com', '12345', 0, 6, 0, '2014-11-15'),
+(13, 741011240, 2, 'Stamate', 'Oana', 'Oana@oana', '12345', 0, 11, 0, '2014-11-15'),
+(14, 98764432, 3, 'Liviu', 'Nicu', 'asdas@asdas.com', '12345', 0, 13, 0, '2014-11-21');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
