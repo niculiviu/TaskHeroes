@@ -95,4 +95,15 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
             return k;
         }
 
+        $scope.adddescription = false;
+        $scope.showDescriptionInput = function () {
+            $scope.adddescription = true;
+            $scope.addDescriptionTextArea = true;
+        }
+
+        $scope.cancel = function () {
+            $scope.adddescription = false;
+            $scope.addDescriptionTextArea = false;
+        }
+
     }]);

@@ -2,7 +2,7 @@
     <p>
         Dificulty Points:
 
-        
+
         <label class="label label-default" style="margin: 2px;">
             <a ng-click="addDif(1,task.ID_task,task)" style="cursor:pointer;color:white;">1</a>
         </label>
@@ -23,11 +23,41 @@
         </label>
 
     </p>
-    <h3>{{task.titlu}} ({{task.punctaj_dificultate}})</h3>
+    <div class="form-group">
+        <input class="form-control" style="background:#f3f3f3; border:solid 1px #e6e6e6;" value="{{task.titlu}}">
+    </div>
+    <div class="form-group">
+        <input class="form-control" style="background:#f3f3f3; border:solid 1px #e6e6e6;" value="{{task.nume_activitate}}">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="3" style="background:#f3f3f3; border:solid 1px #e6e6e6;" ng-model="TaskDescription"></textarea>
+    </div>
+    <div>
+        <div>
+            <button class="btn btn-link"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-link">Set Status</button>
+            <div style="float:right;">
+                <button class="btn btn-primary btn-sm" ng-click="addDescription(TaskDescription,task.ID_task,task)">Save</button>
+            </div>
+        </div>
+        
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-6">
+            <div style="height:120px; background:#428bca; color:#fff; padding:20px; border-radius:3px;" align="center">
+                Dificulty:
+                <h1>{{task.punctaj_dificultate}}</h1>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div style="height:120px; background:#428bca; color:#fff; padding:20px; border-radius:3px;" align="center">
+                Status:
+                <h1>Done</h1>
+            </div>
+        </div>
 
-    <p>
-        <a href="">Add Description</a>
-    </p>
+    </div>
 
-    <button class="btn btn-bee btn-lg" style="width:100%;">I VOLUNTEER</button>
+    <button class="btn btn-bee btn-lg" style="width:100%; margin-top:10px;">I VOLUNTEER</button>
 </script>
