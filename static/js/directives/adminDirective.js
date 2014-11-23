@@ -23,3 +23,9 @@ app.directive('members', function () {
         templateUrl: 'static/template/members_template.html'
     }
 });
+
+app.directive('meetings', function () {
+    return {
+        templateUrl: 'static/template/meetings_template.html'
+    }
+});
