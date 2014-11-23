@@ -49,6 +49,11 @@ app.factory('projectService', ['$http', '$location', 'sessionService', function 
                 myFunctions.getTasks(project_ID, $rootScope);
                 
             });
+        },
+        updateTask: function (json, $rootScope, project_ID) {
+            $http.post("php/updateTask.php", json).success(function (data) {
+                myFunctions.getTasks(project_ID, $rootScope);
+            });
         }
         
     }

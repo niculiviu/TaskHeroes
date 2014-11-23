@@ -24,20 +24,20 @@
 
     </p>
     <div class="form-group">
-        <input class="form-control" style="background:#f3f3f3; box-shadow:none; border:none;" value="{{task.titlu}}">
+        <input class="form-control" style="background:#f3f3f3; box-shadow:none; border:none;" value="{{task.titlu}}" ng-model="task.titlu">
     </div>
     <div class="form-group">
-        <input class="form-control" style="background:#f3f3f3; box-shadow:none; border:none;" value="{{task.nume_activitate}}">
+        <input class="form-control" style="background:#f3f3f3; box-shadow:none; border:none;" value="{{task.nume_activitate}}" ng-model="task.nume_activitate">
     </div>
     <div class="form-group">
-        <textarea class="form-control" rows="3" style="background:#f3f3f3; box-shadow:none; border:none;" ng-model="TaskDescription" placeholder="Add Description..."></textarea>
+        <textarea class="form-control" rows="3" style="background:#f3f3f3; box-shadow:none; border:none;" ng-model="task.descriere" placeholder="Add Description..."></textarea>
     </div>
     <div>
         <div>
             <button class="btn btn-link"><i class="fa fa-trash"></i></button>
             <button class="btn btn-link">Set Status</button>
             <div style="float:right;">
-                <button class="btn btn-primary btn-sm" ng-click="addDescription(TaskDescription,task.ID_task,task)">Save</button>
+                <button class="btn btn-primary btn-sm" ng-click="updateTask(task.titlu,task.nume_activitate,task.descriere,task.ID_task)">Save</button>
             </div>
         </div>
         

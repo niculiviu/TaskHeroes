@@ -106,4 +106,16 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
             $scope.addDescriptionTextArea = false;
         }
 
+        $scope.updateTask = function (title, activity, description, ID_Task) {
+            var json = {
+                'title': title,
+                'activity': activity,
+                'description': description,
+                'ID':ID_Task
+            }
+            console.log(json);
+            projectService.updateTask(json, $rootScope, url[3]);
+        
+        }
+
     }]);
