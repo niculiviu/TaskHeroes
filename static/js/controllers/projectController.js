@@ -115,7 +115,7 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
             }
             console.log(json);
             projectService.updateTask(json, $rootScope, url[3]);
-        
+            $scope.updateTaskAlert = true;
         }
 
     }]);

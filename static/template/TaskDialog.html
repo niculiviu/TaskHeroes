@@ -23,6 +23,7 @@
         </label>
 
     </p>
+    
     <div class="form-group">
         <input class="form-control" style="background:#f3f3f3; box-shadow:none; border:none;" value="{{task.titlu}}" ng-model="task.titlu">
     </div>
@@ -42,6 +43,7 @@
         </div>
         
     </div>
+    <div class="alert alert-success" role="alert" align="center" ng-show="updateTaskAlert">Task Updated!</div>
     <hr />
     <div class="row">
         <div class="col-sm-6">
