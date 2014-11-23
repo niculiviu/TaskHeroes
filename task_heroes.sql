@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Gazda: localhost
--- Timp de generare: 22 Noi 2014 la 15:27
+-- Timp de generare: 23 Noi 2014 la 10:06
 -- Versiune server: 5.6.12-log
 -- Versiune PHP: 5.4.16
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `activitate` (
   `id_user_manager_activitate` int(11) NOT NULL,
   `nume_activitate` varchar(225) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Salvarea datelor din tabel `activitate`
@@ -45,7 +45,9 @@ INSERT INTO `activitate` (`ID`, `id_proiect`, `id_user_manager_activitate`, `num
 (2, 51, -1, 'aSDSA'),
 (3, 51, -1, 'ADFASDAS'),
 (4, 51, -1, 'Liviu'),
-(5, 52, -1, 'Lista 1 Artandar');
+(5, 52, -1, 'Lista 1 Artandar'),
+(6, 51, -1, 'Lista 3'),
+(7, 52, -1, 'Lista 2');
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `membrii_proiect` (
   `ID_project` int(11) NOT NULL,
   `ID_user` int(11) NOT NULL,
   PRIMARY KEY (`ID_a`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Salvarea datelor din tabel `membrii_proiect`
@@ -129,7 +131,15 @@ INSERT INTO `membrii_proiect` (`ID_a`, `ID_project`, `ID_user`) VALUES
 (5, 51, 3),
 (6, 52, 5),
 (7, 53, 11),
-(8, 53, 12);
+(8, 53, 12),
+(9, 51, 15),
+(10, 51, 3),
+(11, 52, 11),
+(12, 52, 15),
+(13, 55, 5),
+(14, 57, 13),
+(15, 57, 5),
+(16, 54, 5);
 
 -- --------------------------------------------------------
 
@@ -175,7 +185,7 @@ INSERT INTO `proiect` (`ID_proiect`, `id_user_project_manager`, `nume_proiect`, 
 --
 
 CREATE TABLE IF NOT EXISTS `task` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_task` int(11) NOT NULL AUTO_INCREMENT,
   `id_activitate` int(11) NOT NULL,
   `id_proiect` int(11) NOT NULL,
   `titlu` varchar(225) NOT NULL,
@@ -184,8 +194,26 @@ CREATE TABLE IF NOT EXISTS `task` (
   `descriere` varchar(225) DEFAULT NULL,
   `punctaj_dificultate` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`ID_task`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Salvarea datelor din tabel `task`
+--
+
+INSERT INTO `task` (`ID_task`, `id_activitate`, `id_proiect`, `titlu`, `start_date`, `end_date`, `descriere`, `punctaj_dificultate`, `status`) VALUES
+(1, 2, 51, 'Task1', NULL, NULL, NULL, 8, 1),
+(2, 6, 51, 'Task2', NULL, NULL, NULL, 3, 1),
+(3, 4, 51, 'Task3', NULL, NULL, NULL, 12, 1),
+(4, 5, 52, 'Task1 Artandar', NULL, NULL, NULL, 0, 1),
+(5, 1, 51, 'Locatie finala', NULL, NULL, NULL, 12, 1),
+(6, 2, 51, 'asdsadsa', NULL, NULL, NULL, 3, 1),
+(7, 3, 51, 'asdas', NULL, NULL, NULL, 8, 1),
+(8, 3, 51, 'adfas', NULL, NULL, NULL, 12, 1),
+(9, 1, 51, 'loool', NULL, NULL, NULL, 1, 1),
+(10, 1, 51, 'zxc', NULL, NULL, NULL, 8, 1),
+(11, 1, 51, 'looooolll', NULL, NULL, NULL, 2, 1),
+(12, 3, 51, 'kkjjkjjk', NULL, NULL, NULL, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -258,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id_erou` int(11) NOT NULL,
   `join_date` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Salvarea datelor din tabel `user`
@@ -275,7 +303,8 @@ INSERT INTO `user` (`ID`, `tel`, `id_team`, `nume_user`, `prenume_user`, `email`
 (11, 745244578, 2, 'Ancuta', 'Diana-Dobos', 'ancuta@dobos.com', '123456', 0, 3, 0, '2014-11-15'),
 (12, 745255892, 2, 'Andreea', 'Popa', 'pcandreea@gmail.com', '12345', 0, 6, 0, '2014-11-15'),
 (13, 741011240, 2, 'Stamate', 'Oana', 'Oana@oana', '12345', 0, 11, 0, '2014-11-15'),
-(14, 98764432, 3, 'Liviu', 'Nicu', 'asdas@asdas.com', '12345', 0, 13, 0, '2014-11-21');
+(14, 98764432, 3, 'Liviu', 'Nicu', 'asdas@asdas.com', '12345', 0, 13, 0, '2014-11-21'),
+(15, 742041277, 2, 'Ene', 'Andreea-Daniela', 'dene@gmail.com', '1234', 0, 2, 0, '2014-11-22');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
