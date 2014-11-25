@@ -19,4 +19,5 @@
         adminService.getMembers($scope.TeamID_root, $rootScope);
         adminService.getProject($scope.TeamID_root, $rootScope);
         projectService.getLists(url[3], $rootScope);
+        projectService.getProjectMembers(url[3], $rootScope);
     }]);

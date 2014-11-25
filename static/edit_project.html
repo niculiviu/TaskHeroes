@@ -45,12 +45,45 @@
             <div class="col-sm-6">
                 <h3>Security Options</h3>
                 <div class="well well-sm">
-                    <b>Only project manager could add members</b>
+                    <b>It's this project public?</b>
                     <div style="float:right">
                         <button class="btn btn-primary btn-xs">Yes</button>
                         <button class="btn btn-primary btn-xs">No</button>
                     </div>
                 </div>
+                <div class="well well-sm">
+                    <b>Only project manager could add members:</b>
+                    <div style="float:right">
+                        <button class="btn btn-primary btn-xs">Yes</button>
+                        <button class="btn btn-primary btn-xs">No</button>
+                    </div>
+                </div>
+                <div class="well well-sm">
+                    <b>Only project manager and activity managers coud add tasks</b>
+                    <div style="float:right">
+                        <button class="btn btn-primary btn-xs">Yes</button>
+                        <button class="btn btn-primary btn-xs">No</button>
+                    </div>
+                </div>
+                <h3>Project Members</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="projMember in ProjectMembers">
+                            <td><img src="img/default_user.png" style="height:25px; width:25px;" tooltip-placement="top" tooltip="" />
+                                {{projMember.nume_user}} {{projMember.prenume_user}}
+                            </td>
+                            <td align="right">
+                            <button class="btn btn-link btn-xs">Remove from project</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
             
