@@ -5,3 +5,6 @@ app.controller('indexCtrl', ['$scope', 'loginService', '$location', 'adminServic
         $scope.txt = 'Page Home';
         $rootScope.PageName = 'Dashboard';
     }]);
+
+    
+ 

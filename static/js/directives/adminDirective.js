@@ -29,15 +29,3 @@ app.directive('meetings', function () {
         templateUrl: 'static/template/meetings_template.html'
     }
 });
-
-app.directive('data-lining', function () {
-    return {
-        templateUrl: 'static/js/lining.min.js'
-    }
-});
-
-app.directive('data-effect', function () {
-    return {
-        templateUrl: 'static/js/lining.effect.min.js'
-    }
-});
