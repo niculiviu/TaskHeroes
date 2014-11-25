@@ -84,4 +84,12 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService',
         $scope.goToProject = function (projectID) {
             $rootScope.ProjectID = projectID;
         }
+
+        $scope.DaysRemaining = function (start, end) {
+            var start_date = new Date(start).getTime();
+            var end_date = new Date(end).getTime();
+
+            return parseInt((end_date - start_date) / (24 * 3600 * 1000));
+            
+        }
     }]);

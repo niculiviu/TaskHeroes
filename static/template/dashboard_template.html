@@ -1,23 +1,35 @@
-﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top:70px;">
+﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" style="margin-top:50px;">
 
-    <blockquote style="background:#fff;border-left: 5px solid #fdba13;">
-        <h3 style="margin:0px;">Projects  <button type="button" class="btn btn-bee" data-toggle="modal" data-target="#NewProjectModal"><span class="glyphicon glyphicon-plus"></span> Add Project</button></h3>
-    </blockquote>
+    <div class="row">
+        <div style="background:#4388ab; color:#fff; padding:20px;">
+            <h3 style="margin:0px;">Projects  
+            </h3>
+        </div>
+    </div>
+    
     <div>
     </div>
-    <div class="row">
-        <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}">
-            <div class="well well-sm" style="background:#fff;">
+    <div class="row" style="background:#76a7c0;">
+        <div class="col-sm-6 col-md-4" style="padding:0px;">
+            <div class="well well-project" align="center">
+                <h2>ADD NEW PROJECT</h2>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#NewProjectModal"><span class="glyphicon glyphicon-plus"></span> Add Project</button>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}" style="padding:0px;">
+            <div class="well well-project" style="cursor:pointer;" ng-click="goToProject(proiect.ID_proiect)">
                 <a ng-href="#/admin/project/{{proiect.ID_proiect}}" ng-click="goToProject(proiect.ID_proiect)">
                     <h3 style="margin-top:0px;">{{proiect.nume_proiect}}</h3>
+                    <h4 style="color:#bacbd3;">Ends in {{DaysRemaining(proiect.start_date,proiect.end_date)}} days</h4>
                 </a>
-                <small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#/admin/profile/{{proiect.id_user_project_manager}}">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>
-                <hr style="margin:5px;" />
-                <span class="label label-primary">Start Date: {{proiect.start_date}}</span>
-                <span class="label label-primary">End Date: {{proiect.end_date}}</span>
-                <div class="pull-right">
-                    <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
-                    <button class="btn btn-link btn-sm" ng-click="removeProject(proiect.ID_proiect)"><span class="glyphicon glyphicon-trash"></span></button>
+                <!--<small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#/admin/profile/{{proiect.id_user_project_manager}}">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>
+        <hr style="margin:5px;" />-->
+                <div style="position:absolute; bottom:0px; right:0;">
+
+                    <div class="pull-right">
+                        <a href="#" class="btn btn-link btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a class="btn btn-link btn-sm" ng-click="removeProject(proiect.ID_proiect)"><span class="glyphicon glyphicon-trash"></span></a>
+                    </div>
                 </div>
             </div>
         </div>

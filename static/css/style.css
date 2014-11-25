@@ -221,3 +221,14 @@ z-index: -2;
 .navbar-custom .navbar-link:hover {
   color: #b5b5b5;
 }
+.well-project {
+background:#026fa8;
+color:#fff;
+margin-bottom:0px;
+height:200px;
+border-radius:0px;
+border:0px;
+}
+    .well-project a {
+    color:white !important;
+    }
