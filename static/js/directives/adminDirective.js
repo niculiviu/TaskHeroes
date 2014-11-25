@@ -2,7 +2,8 @@
 
 app.directive('menuBar', function () {
     return {
-        templateUrl: 'static/template/menu_bar.html'
+        templateUrl: 'static/template/menu_bar.html',
+        controller:'menuCtrl'
     }
 });
 

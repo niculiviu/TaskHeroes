@@ -16,6 +16,16 @@
                 <a class="navbar-brand" href="#/admin" style="padding-top:5px; padding-left:0px;"><img src="img/logo_default.png" height="40" /></a>
             </div>
             <div class="navbar-right" style="margin-top:7px;">
+                <span class="dropdown" dropdown on-toggle="toggled(open)">
+                    <a href class="dropdown-toggle" dropdown-toggle>
+                        Click me for a dropdown, yo!
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="choice in items">
+                            <a href>{{choice}}</a>
+                        </li>
+                    </ul>
+                </span>
                 <div class="dropdown">
                     <button class="btn btn-bee dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-th-large"></span>
