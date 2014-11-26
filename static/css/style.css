@@ -1,4 +1,13 @@
-﻿
+﻿.sidebar>.nav > li > a {
+position: relative;
+display: block;
+padding: 0.83em 0.95em;
+line-height: 2;
+font-family: 'Gudea', sans-serif;
+font-weight:700;
+font-size:18px;
+
+}
 img.bg {
 min-height: 100%;
 min-width: 640px;
@@ -33,7 +42,7 @@ display: block;
 overflow-x: hidden;
 overflow-y: auto;
 *background-color: #f5f5f5;
-border-right: 1px solid #fff;
+*border-right: 1px solid #fff;
 }
 .sidebar-pro {
 *position: fixed;
@@ -59,7 +68,7 @@ margin-left: -20px;
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #fdba13;
+  background-color: #76a7c0;
 }
 
 .main {
