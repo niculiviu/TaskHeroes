@@ -6,7 +6,7 @@ line-height: 2;
 font-family: 'Gudea', sans-serif;
 font-weight:700;
 font-size:18px;
-
+color:#76a7c0;
 }
 img.bg {
 min-height: 100%;
@@ -67,7 +67,7 @@ margin-left: -20px;
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #fff;
+  color: #fff !important;
   background-color: #76a7c0;
 }
 
