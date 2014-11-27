@@ -24,6 +24,9 @@
         $scope.chooseDep = function (data) {
             $scope.searchText = data;
         }
-
+        
+        $scope.showAll = function () {
+            $scope.searchText = '';
+        }
         
     }]);

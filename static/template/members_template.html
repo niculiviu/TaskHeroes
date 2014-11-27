@@ -4,7 +4,8 @@
             <div class="container-fluid" style="padding:0px;">
                 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="" data-toggle="modal" data-target="#AddDepModal">+</a></li>
+                    <li class="active"><a href="" data-toggle="modal" data-target="#AddDepModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+                    <li><a href="" ng-click="showAll()">Show All</a></li>
                     <li ng-repeat="d in all_dep">
                     <a href="" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</a></li>
                     
@@ -60,34 +61,36 @@
             <div class="modal-body">
                 <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
                     <div class="form-group col-lg-6" style="padding-left:0px;">
-
-                        <input class="form-control input-sm" placeholder="Nume..." ng-model="newMember.nume" />
+                        <input class="form-control" placeholder="Nume..." ng-model="newMember.nume" />
                     </div>
                     <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
 
-                        <input class="form-control input-sm" placeholder="Prenume..." ng-model="newMember.prenume" />
+                        <input class="form-control" placeholder="Prenume..." ng-model="newMember.prenume" />
                     </div>
                 </div>
                 <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
                     <div class="form-group col-lg-6" style="padding-left:0px;">
 
-                        <input class="form-control input-sm" placeholder="E-mail..." ng-model="newMember.email" />
+                        <input class="form-control" placeholder="E-mail..." ng-model="newMember.email" />
                     </div>
                     <div class="form-group col-lg-6" style="padding: 0px; margin: 0px;">
 
-                        <input class="form-control input-sm" placeholder="Numar de telefon..." ng-model="newMember.tel" />
+                        <input class="form-control" placeholder="Numar de telefon..." ng-model="newMember.tel" />
                     </div>
                 </div>
-                <div class="form-group">
+                <div>
+                    <div class="form-group">
 
-                    <input type="password" class="form-control input-sm" ng-model="newMember.pass" placeholder="Parola">
-                </div>
-                <div class="form-group">
-                    <label>Select Department</label>
-                    <select class="form-control" ng-model="newMember.dep">
-                        <option ng-repeat="d in all_dep" value="{{d.ID}}">{{d.nume_departament}}</option>
-                    </select>
-                    <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
+                        <input type="password" class="form-control" ng-model="newMember.pass" placeholder="Parola">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Department</label>
+                        <select class="form-control" ng-model="newMember.dep">
+                            <option ng-repeat="d in all_dep" value="{{d.ID}}">{{d.nume_departament}}</option>
+                        </select>
+                        <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -109,7 +112,7 @@
                 <div>
                     <div class="form-group">
 
-                        <input class="form-control input-sm" placeholder="Nume departament..." ng-model="dep.name" />
+                        <input class="form-control" placeholder="Nume departament..." ng-model="dep.name" />
                         <input type="hidden" ng-init="dep.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="dep.TeamID">
                     </div>
                 </div>
