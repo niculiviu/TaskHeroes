@@ -6,7 +6,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/admin/', { templateUrl: 'static/dashboard.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/members/', { templateUrl: 'static/members.html', controller: 'membersCtrl' });
     $routeProvider.when('/admin/meetings/', { templateUrl: 'static/meetings.html', controller: 'meetingsCtrl' });
-    $routeProvider.when('/admin/organization/', { templateUrl: 'static/organization_admin.html', controller: 'orgCtrl' });
+    $routeProvider.when('/admin/organization/', { templateUrl: 'static/organization_admin.html', controller: 'orgCtrl' }); 
     $routeProvider.when('/admin/profile/:ID/', { templateUrl: 'static/profile.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/settings/', { templateUrl: 'static/settings.html', controller: 'adminCtrl' });
     $routeProvider.when('/admin/project/:ID', { templateUrl: 'static/project.html', controller: 'projectCtrl' });
@@ -19,9 +19,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 
 }]);
 
-
 app.run(function ($rootScope, $location, loginService) {
-    var routespermission = ['/admin/'];  //route that require login
+    var routespermission = ['/admin/'];  //route that requires login
     $rootScope.$on('$routeChangeStart', function () {
         if (routespermission.indexOf($location.path()) != -1) {
             var connected = loginService.islogged();

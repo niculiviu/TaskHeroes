@@ -11,7 +11,7 @@
         membersService.getMembers($scope.TeamID_root, $rootScope);
         membersService.getDep($scope.TeamID_root, $rootScope);
 
-        
-
-
     }]);
+    
+    
+    
