@@ -11,7 +11,7 @@
 				<div class="container">
 				  <center><h1><b>Task Heroes gets you motivated</b></h1>			
 				  <p>The only web application that motivates the user to get things done in a simple and organized way.</p>
-				  <p><a class="btn btn-primary btn-lg" href="#" role="button">Sign Up</a></p>
+				  <p><a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#RegisterModal" role="button">Sign Up</a></p>				  
 				  <p><a href="/TaskHeroes/#/login">Or log in</a></p>
 				  </center>
 				</div>
@@ -38,7 +38,69 @@
 				<p class="col-lg-8">Alte screenshot-uri super din super-site.Icing jelly danish chocolate tiramisu pie biscuit marshmallow. Powder bear claw danish. Gummies chupa chups soufflé macaroon dessert pastry sugar plum gingerbread dragée. Marzipan cake lollipop tootsie roll jelly beans chocolate cake jelly beans.Icing jelly danish chocolate tiramisu pie biscuit marshmallow. </p>
 				<div class="col-lg-4" ><img src="https://d2k1ftgv7pobq7.cloudfront.net/meta/p/res/images/45628ca89b3637e34e5e51737068ffbb/home-power-up-icons.png"></div>
 			</div>
+		</div>	
+		
+		<div class="modal fade bs-example-modal-lg" id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		                <h4 class="modal-title" id="myModalLabel">Register your Organization</h4>
+		            </div>
+		            <form role="form" name="form2">
+		                <div class="modal-body">
+		                    <h5>{{msgtxt_register}}</h5>
+		                    <div class="row">
+		                        <div class="col-sm-6">
+		                            <div class="form-group">
+		                                <input placeholder="First Name" class="form-control input-lg" ng-model="new_user.first" />
+		                            </div>
+		                        </div>
+		                        <div class="col-sm-6">
+		                            <div class="form-group">
+		                                <input placeholder="Last Name" class="form-control input-lg" ng-model="new_user.last" />
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+		                        <input placeholder="Your e-mail" class="form-control input-lg" ng-model="new_user.email" />
+		                    </div>
+		                    <div class="row">
+		                        <div class="col-sm-6">
+		                            <div class="form-group">
+		                                <input placeholder="Password" class="form-control input-lg" ng-model="new_user.pass1" />
+		                            </div>
+		                        </div>
+		                        <div class="col-sm-6">
+		                            <div class="form-group">
+		                                <input placeholder="Password" class="form-control input-lg" ng-model="new_user.pass2" />
+		                            </div>
+		                        </div>
+		                    </div>
+		                    <div class="form-group">
+		                        <input placeholder="Organization Name" class="form-control input-lg" ng-model="new_user.org_name" />
+		                    </div>
+		                    <div class="form-group">
+		                        <select placeholder="Organization Name" class="form-control input-lg" ng-model="new_user.org_type">
+		                            <option value="0">--SELECT ORGANIZATION TYPE--</option>
+		                            <option value="1">Students Association</option>
+		                            <option value="2">School</option>
+		                            <option value="3">Religious</option>
+		                            <option value="4">Other</option>
+		                        </select>
+		                    </div>
+		                </div>
+		                <div class="modal-footer">
+		
+		                    <button type="submit" class="btn btn-primary btn-lg" style="width:100%" ng-click="register(new_user)">Register</button>
+		                </div>
+		            </form>
+		        </div>
+		    </div>
 		</div>		
+		
+		
+			
 		
 	</body>
 	
