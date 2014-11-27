@@ -4,9 +4,9 @@
             <div class="container-fluid" style="padding:0px;">
                 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a>+</a></li>
+                    <li class="active"><a href="" data-toggle="modal" data-target="#AddDepModal">+</a></li>
                     <li ng-repeat="d in all_dep">
-                    <a class="btn btn-link btn-xs" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</a></li>
+                    <a href="" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</a></li>
                     
                 </ul>
                 
@@ -14,12 +14,12 @@
         </nav>
         <div style="background:#4388ab; color:#fff; padding:20px;">
             <div class="row">
-                <div class="col-sm-8"><h4 style="margin-top:0px;">Members</h4></div>
+                <div class="col-sm-8"><h4 style="margin-top:0px;">Members <button data-toggle="modal" data-target="#AddMemberModal" class="btn btn-primary">Add Member</button></h4></div>
                 <div class="col-sm-4"><input class="form-control input-sm" ng-model="searchText" placeholder="Search..." /></div>
             </div>
             </div>
 
-            <table class="table table-hover table-condensed table-striped">
+            <table class="table" style="background:#76a7c0; color:white;">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -37,56 +37,13 @@
                         <td>{{membru.nume_departament}}</td>
                         <td>{{membru.email}}</td>
                         <td>{{membru.tel}}</td>
-                        <td align="right"><a href="#" class="btn btn-bee btn-xs">Edit</a> <a href="#" class="btn btn-danger btn-xs">Sterge</a></td>
+                        <td align="right">
+                        <a href="#" class="btn btn-primary btn-xs">Erase</a></td>
 
                     </tr>
                 </tbody>
             </table>
-            <div class="col-sm-4">
-                <form>
-                    <div>
-                        <div style="background:#4388ab; color:#fff; padding:20px;">
-                            <h4 style="margin-top:0px;" class="modal-title" id="myModalLabel">Add New Member</h4>
-                        </div>
-                    </div>
-                    
-                </form>
-
-                <form>
-                    <blockquote style="background:#fff;border-left: 5px solid #fdba13; margin-top:10px;">
-                        <h4 style="margin-top:0px;" class="modal-title" id="myModalLabel">Add New Departament</h4>
-                    </blockquote>
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="form-group">
-
-                                <input class="form-control input-sm" placeholder="Nume departament..." ng-model="dep.name" />
-                                <input type="hidden" ng-init="dep.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="dep.TeamID">
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <button type="button" class="btn btn-bee btn-sm" ng-click="addDepartment(dep)" style="width:100%;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New</button>
-                        </div>
-                    </div>
-                </form>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Departamente</h3>
-                    </div>
-                    <div class="panel-body" style="padding:0px;">
-                        <table class="table table-hover table-condensed table-striped">
-
-                            <tr ng-repeat="d in all_dep">
-                                <td><button class="btn btn-link btn-xs" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</button></td>
-                                <td align="right"><button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-
-            </div>
+           
         </div>
     <!--h3 style="margin-top:0px;">Members <span><a href="#" class="btn btn-bee btn-sm"><span class="glyphicon glyphicon-plus"></span> Add New Member</a></span></h3-->
 
@@ -100,7 +57,7 @@
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 <h4 class="modal-title" id="myModalLabel">Add Member</h4>
             </div>
-            <div>
+            <div class="modal-body">
                 <div class="col-lg-12" style="padding-left: 0px; margin-left: 0px; padding: 0px;">
                     <div class="form-group col-lg-6" style="padding-left:0px;">
 
@@ -133,8 +90,33 @@
                     <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
                 </div>
             </div>
-            <div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-bee" ng-click="addMember(newMember)" style="width:100%;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Member</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade bs-example-modal-lg" id="AddDepModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add Departament</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div class="form-group">
+
+                        <input class="form-control input-sm" placeholder="Nume departament..." ng-model="dep.name" />
+                        <input type="hidden" ng-init="dep.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="dep.TeamID">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-bee" ng-click="addDepartment(dep)" style="width:100%;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New</button>
             </div>
         </div>
     </div>
