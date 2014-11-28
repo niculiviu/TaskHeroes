@@ -1,23 +1,14 @@
 
-$(document).ready(function()
-{
-	$("#notificationLink").click(function()
-	{
-		$("#notificationContainer").fadeToggle(300);
-		$("#notification_count").fadeOut("slow");
-		return false;
-	});
+	function showNotification(){
+		$("#notificationContainer").show(200);
+		$("#notificationLink").attr('onclick', 'showNotificationExit()');
+		
+	}
 	
-	//Document Click hiding the popup 
-	$(document).click(function()
-	{
-		$("#notificationContainer").hide();
-	});
 	
-	//Popup on click
-	$("#notificationContainer").click(function()
-	{
-		return false;
-	});
+	function showNotificationExit(){
+		$("#notificationContainer").hide(200);
+		$("#notificationLink").attr('onclick', 'showNotification()');
+		
+	}
 
-});

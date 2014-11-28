@@ -35,9 +35,8 @@
 	padding: 8px;
 	font-size: 13px;
 	background-color: #ffffff;
-	position: fixed;
 	z-index: 1000;
-	width: 397px;
+	width: 100%;
 	border-bottom: 1px solid #dddddd;
 }
 
@@ -89,4 +88,11 @@
 	position: absolute;
 	margin-top: -11px;
 	font-size: 11px;
+}
+
+#notificationLink{
+	background:transparent!important;
+}
+#notificationLink:hover{
+	background-color:none!important;
 }
