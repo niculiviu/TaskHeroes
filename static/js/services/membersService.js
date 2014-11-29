@@ -20,7 +20,7 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
         getDep: function (ID, $rootScope) {
             $http.post("php/getDep.php?ID=" + ID).success(function (data) {
                 $rootScope.all_dep = data;
-                console.log($rootScope.dep);
+                console.log($rootScope.all_dep);
             });
         },
         newMember: function (data, $rootScope) {
@@ -40,12 +40,9 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
             });
         },
         
-        removeDepa: function (data, $rootScope) {
-               		 console.log(data);
-
-            $http.post("php/removeDep.php?dep=" + data).success(function (data) {
-                  		 console.log(data);
-                  		 location.reload();
+        removeDepa: function (data, $rootScope,TeamID) {
+            $http.post("php/removeDep.php?ID=" + data).success(function (data) {    		
+                myFunctions.getDep(TeamID, $rootScope);
 
             });
         }

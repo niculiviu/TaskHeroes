@@ -24,8 +24,8 @@
         }
         
 		$scope.removeDep = function (data) {
-           // console.log(data);
-            membersService.removeDepa(data, $rootScope);
+            console.log(data);
+            membersService.removeDepa(data, $rootScope, $scope.TeamID_root);
             
         }
         

@@ -6,8 +6,14 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="" data-toggle="modal" data-target="#AddDepModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
                     <li><a href="" ng-click="showAll()">Show All</a></li>
-                    <li ng-repeat="d in all_dep">
-                      <a href="" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}} </a> <a ng-click="removeDep(d.nume_departament)">x</a>
+                    <li ng-repeat="d in all_dep" role="presentation" class="dropdown">
+                        <a href="" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" href="#" role="button" aria-expanded="false">{{d.nume_departament}} <span class="caret"></span></a> 
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="" ng-click="chooseDep(d.nume_departament)">Show members</a></li>
+                            <li><a href="" ng-click="removeDep(d.ID)">Remove Departament</a></li>
+                            <li><a href="" ng-click="editDep(d.ID)">Edit Departament Name</a></li>
+                        </ul>
+                        
                     </li>
                     
                 </ul>
