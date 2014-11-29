@@ -38,6 +38,16 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
                     myFunctions.getDep(data, $rootScope);
                 }
             });
+        },
+        
+        removeDepa: function (data, $rootScope) {
+               		 console.log(data);
+
+            $http.post("php/removeDep.php?dep=" + data).success(function (data) {
+                  		 console.log(data);
+                  		 location.reload();
+
+            });
         }
     }
     return myFunctions;

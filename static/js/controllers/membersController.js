@@ -16,11 +16,20 @@
             membersService.newMember(data, $rootScope);
             $scope.newMember = '';
         }
+        
         $scope.addDepartment = function (data) {
             console.log(data);
             membersService.newDep(data, $rootScope);
             
         }
+        
+		$scope.removeDep = function (data) {
+           // console.log(data);
+            membersService.removeDepa(data, $rootScope);
+            
+        }
+        
+        
         $scope.chooseDep = function (data) {
             $scope.searchText = data;
         }

@@ -7,7 +7,8 @@
                     <li class="active"><a href="" data-toggle="modal" data-target="#AddDepModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
                     <li><a href="" ng-click="showAll()">Show All</a></li>
                     <li ng-repeat="d in all_dep">
-                    <a href="" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}}</a></li>
+                      <a href="" ng-click="chooseDep(d.nume_departament)">{{d.nume_departament}} </a> <a ng-click="removeDep(d.nume_departament)">x</a>
+                    </li>
                     
                 </ul>
                 
