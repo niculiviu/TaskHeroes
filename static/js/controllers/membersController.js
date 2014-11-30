@@ -47,8 +47,11 @@
         }
 
         $scope.updateMember = function (memberInfo) {
-            console.log("User ID:"+memberInfo.ID);
+            $rootScope.user_updated = false;
             membersService.updateMember(memberInfo, $rootScope,$scope.TeamID_root);
+        }
+        $scope.deleteMember = function (memberID) {
+            membersService.deleteMember(memberID,$scope.TeamID_root, $rootScope);
         }
         
     }]);

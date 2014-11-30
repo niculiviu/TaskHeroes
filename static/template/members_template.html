@@ -31,10 +31,11 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Nume si Prenume</th>
-                    <th>Departament</th>
-                    <th>e-mail</th>
-                    <th>Telefon</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>email</th>
+                    <th>Telephone</th>
+                    <th>Password</th>
                     <th></th>
                 </tr>
             </thead>
@@ -57,8 +58,12 @@
                     </td>
                     <td>{{membru.email}}</td>
                     <td>{{membru.tel}}</td>
+                    <td>
+                        <a href="" class="btn btn-link btn-xs">Change Password</a>
+                    </td>
                     <td align="right">
-                        <a href="#" class="btn btn-primary btn-xs">Erase</a>
+                       
+                        <a href="" class="btn btn-danger btn-xs" ng-click="deleteMember(membru.id)">Delete</a>
                     </td>
 
                 </tr>
