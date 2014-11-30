@@ -37,5 +37,9 @@
         $scope.showAll = function () {
             $scope.searchText = '';
         }
+
+        $scope.changeDep = function (idDep, idUser) {
+            membersService.updateDep(idDep, idUser, $scope.TeamID_root, $rootScope);
+        }
         
     }]);

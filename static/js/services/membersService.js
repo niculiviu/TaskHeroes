@@ -45,6 +45,12 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
                 myFunctions.getDep(TeamID, $rootScope);
 
             });
+        },
+        updateDep: function (idDep, idUser, TeamID,$rootScope) {
+            $http.post("php/updateMemberDep.php?idDep=" + idDep+"&idUser="+idUser).success(function (data) {
+                myFunctions.getMembers(TeamID, $rootScope);
+
+            });
         }
     }
     return myFunctions;

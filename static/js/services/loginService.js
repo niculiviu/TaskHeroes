@@ -18,6 +18,7 @@ app.factory('loginService', function ($http, $location, sessionService) {
                     
                     sessionService.set('TeamID', TeamID);
                     $location.path('/admin/');
+                    location.reload();
                 }
                 else {
                     scope.msgtxt = 'Email-ul sau parola sunt incorecte';

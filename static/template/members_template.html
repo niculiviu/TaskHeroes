@@ -42,7 +42,15 @@
                 <tr ng-repeat="membru in members | filter:searchText">
                     <td>{{membru.id}}</td>
                     <td>{{membru.nume_user}} {{membru.prenume_user}}</td>
-                    <td>{{membru.nume_departament}}</td>
+                    <td class="dropdown">
+                        <a href="" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{membru.nume_departament}} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation" class="dropdown-header">Change Departament</li>
+                            <li ng-repeat="d in all_dep"><a href="" ng-click="changeDep(d.ID,membru.id)">{{d.nume_departament}}</a></li>
+                        </ul>
+                    </td>
                     <td>{{membru.email}}</td>
                     <td>{{membru.tel}}</td>
                     <td align="right">
