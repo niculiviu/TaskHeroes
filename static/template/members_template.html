@@ -27,30 +27,31 @@
             </div>
             </div>
 
-            <table class="table" style="background:#76a7c0; color:white;">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nume si Prenume</th>
-                        <th>Departament</th>
-                        <th>e-mail</th>
-                        <th>Telefon</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="membru in members | filter:searchText">
-                        <td>{{membru.id}}</td>
-                        <td>{{membru.nume_user}} {{membru.prenume_user}}</td>
-                        <td>{{membru.nume_departament}}</td>
-                        <td>{{membru.email}}</td>
-                        <td>{{membru.tel}}</td>
-                        <td align="right">
-                        <a href="#" class="btn btn-primary btn-xs">Erase</a></td>
+        <table id="pattern-style-a">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nume si Prenume</th>
+                    <th>Departament</th>
+                    <th>e-mail</th>
+                    <th>Telefon</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="membru in members | filter:searchText">
+                    <td>{{membru.id}}</td>
+                    <td>{{membru.nume_user}} {{membru.prenume_user}}</td>
+                    <td>{{membru.nume_departament}}</td>
+                    <td>{{membru.email}}</td>
+                    <td>{{membru.tel}}</td>
+                    <td align="right">
+                        <a href="#" class="btn btn-primary btn-xs">Erase</a>
+                    </td>
 
-                    </tr>
-                </tbody>
-            </table>
+                </tr>
+            </tbody>
+        </table>
            
         </div>
     <!--h3 style="margin-top:0px;">Members <span><a href="#" class="btn btn-bee btn-sm"><span class="glyphicon glyphicon-plus"></span> Add New Member</a></span></h3-->
@@ -93,8 +94,8 @@
 
                     <div class="form-group">
                         <label>Select Department</label>
-                        <select class="form-control" ng-model="newMember.dep">
-                            <option ng-repeat="d in all_dep" value="{{d.ID}}">{{d.nume_departament}}</option>
+                        <select class="form-control" ng-model="newMember.dep" ng-options="d.nume_departament for d in all_dep track by d.ID">
+                            <option value="">-- Choose Departament --</option>
                         </select>
                         <input type="hidden" ng-init="newMember.TeamID='{{TeamID_root}}'" value="{{TeamID_root}}" ng-model="newMember.TeamID">
                     </div>
