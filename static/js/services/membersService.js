@@ -51,6 +51,18 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
                 myFunctions.getMembers(TeamID, $rootScope);
 
             });
+        },
+        getSingleMember: function (id, $rootScope) {
+            $http.post("php/getSingleMember.php?ID=" + id).success(function (data) {
+                $rootScope.SingleMember = data;
+
+            });
+        },
+        updateMember: function (memberInfo, $rootScope, TeamID) {
+            $http.post("php/updateMember.php", memberInfo).success(function (data) {
+                $rootScope.user_updated = true;
+                myFunctions.getMembers(TeamID,$rootScope);
+            });
         }
     }
     return myFunctions;

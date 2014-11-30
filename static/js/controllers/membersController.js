@@ -41,5 +41,14 @@
         $scope.changeDep = function (idDep, idUser) {
             membersService.updateDep(idDep, idUser, $scope.TeamID_root, $rootScope);
         }
+
+        $scope.getSingleMember = function (id) {
+            membersService.getSingleMember(id,$rootScope);
+        }
+
+        $scope.updateMember = function (memberInfo) {
+            console.log("User ID:"+memberInfo.ID);
+            membersService.updateMember(memberInfo, $rootScope,$scope.TeamID_root);
+        }
         
     }]);
