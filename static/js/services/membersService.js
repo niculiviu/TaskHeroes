@@ -63,6 +63,11 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
                 $rootScope.user_updated = true;
                 myFunctions.getMembers(TeamID,$rootScope);
             });
+        },
+        deleteMember: function (memberID, TeamID, $rootScope) {
+            $http.post("php/deleteMember.php?ID="+memberID).success(function (data) {
+                myFunctions.getMembers(TeamID, $rootScope);
+            });
         }
     }
     return myFunctions;
