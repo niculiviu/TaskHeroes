@@ -83,7 +83,7 @@
                             <input type="text" style="width:100%; border-radius:0px;" ng-model="customSelected" placeholder="Add member ..." typeahead="member as member.nume_user+' '+member.prenume_user for member in members | filter:$viewValue" typeahead-template-url="customTemplate.html" class="form-control">
                         </div>
                         <div class="col-xs-4" style="padding-left:0px;">
-                            <a class="btn btn-bee" style="width:100%; border-radius:0px;" ng-click="addMemberToProject(customSelected,pro.ID_proiect)">Add</a>
+                            <a class="btn btn-bee" style="width:100%; border-radius:0px;" ng-click="addMemberToProject(customSelected.id,pro.ID_proiect)">Add</a>
                         </div>
                     </div>
                 </div>

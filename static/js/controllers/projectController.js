@@ -44,7 +44,7 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
 
         $scope.addMemberToProject = function (user, Project_ID) {
             var json = {
-                'id_user': user.id,
+                'id_user': user,
                 'id_project':Project_ID
             }
             projectService.addMemberToProject(json, $rootScope);

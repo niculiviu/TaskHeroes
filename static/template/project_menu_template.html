@@ -11,11 +11,9 @@
             <li><a href="#/admin/project/{{pro.ID_proiect}}/statistics">Statistics</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <img src="img/default_user.png" style="height:20px; width:20px;" /> {{pro.nume_user}} {{pro.prenume_user}}
-                </a>
-            </div>
+            
+            <a href="" ng-click="addMemberToProject(LoggedUserJson.ID,pro.ID_proiect)" class="btn btn-bee" style="margin-top:7px;">Join {{pro.nume_proiect}}</a>
+            
         </ul>
     </div>
 </nav>
