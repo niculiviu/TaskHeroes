@@ -58,12 +58,9 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
                 'id_project': Project_ID
             }
             var i = 0, exist = 0, obj = $rootScope.ProjectMembers;
-            
             for (i = 0; i < obj.length; i++) {
-                
-                if (obj[i].id == json.id_user) {
-                    exist++;
-                    
+                if (obj[i].id == json.id_user || obj[i].id_user == json.id_user) {
+                    exist++;  
                 }
             }
             if (exist == 0) {
