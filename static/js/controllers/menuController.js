@@ -6,7 +6,9 @@
         }
         
         loginService.TeamID;
-        loginService.getLoggedUser($rootScope);
+        loginService.getLoggedUser().success(function (response) {
+            $scope.LoggedUserJson = response[0];
+        });
         
 
     }]);

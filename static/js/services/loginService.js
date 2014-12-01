@@ -54,16 +54,9 @@ app.factory('loginService', function ($http, $location, sessionService,$rootScop
                 
             });
         },
-        getLoggedUser: function ($rootScope) {
-            console.log("logged user");
+        getLoggedUser: function () {
             var user = sessionService.get('UserID');
-            $http.post('php/getLoggedUser.php?ID=' + user).success(function (data) {
-                if (data) {
-                    $rootScope.LoggedUserJson = data;
-                    console.log($rootScope.LoggedUserJson);
-                };
-            });
-
+            return $http.get('php/getLoggedUser.php?ID=' + user);
         }
     }
 

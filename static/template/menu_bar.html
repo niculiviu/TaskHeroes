@@ -16,24 +16,35 @@
                 <a class="navbar-brand" href="#/admin" style="padding-top:5px; padding-left:0px;"><img src="img/logo_default.png" height="40" /></a>
                 
             </div>
-            <div class="navbar-right" style="margin-top:7px;">
-                
-                
-                <a href="#" class="btn btn-danger" style="border-radius:0px;" ng-click="logout()"><span class="glyphicon glyphicon-off"></span></a>
-                
-                <ul class="nav nav-pills nav-stacked"></ul>
-            </div>
             <ul class="nav navbar-nav navbar-right">
-                <li ng-repeat="u in LoggedUserJson">
-                    <a href="">Hello {{u.nume_user}} {{u.prenume_user}}</a>
+                <li role="presentation" class="dropdown">
+                    <a href="" class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" role="button" aria-expanded="false">
+                    Hello {{LoggedUserJson.nume_user}} {{LoggedUserJson.prenume_user}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span> View Public Profile</a></li>
+                        <li><a href=""><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit Profile</a></li>
+                        <li><a href="" ng-click="logout()" style="color:red;"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</a></li>
+                    </ul>
                 </li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
+                
+            </ul>
+
+           
+            <ul class="nav navbar-nav">
+                <li>
+                    <div style="width:500px;">
+                        <form class="navbar-form">
+                            <input type="text" class="form-control" placeholder="Search..." style="width:100%;background:#eee; color:#dee6eb; border:none; border-radius:0px;">
+
+                        </form>
+                    </div>
+                </li>
+                
 
                 <li id="notification_li">
                     <a onclick="showNotification()" id="notificationLink">
-                        <span class="badge pull-right">4</span>
-                        <span class="glyphicon glyphicon-bell"></span>
+                        <span class="glyphicon glyphicon-globe"></span> What's New
+                        
                     </a>
                     <div id="notificationContainer">
 						<div id="notificationTitle">Notifications</div>
@@ -42,26 +53,7 @@
 					</div>
                     
                 </li>
-                
-			   <!--li id="notification_li">
-					<span id="notification_count">3</span>
-					<a href="#" id="notificationLink">Notifications</a>
-					
-					<div id="notificationContainer">
-						<div id="notificationTitle">Notifications</div>
-						<div id="notificationsBody" class="notifications"></div>
-						<div id="notificationFooter"><a href="#">See All</a></div>
-					</div>
-				</li-->
-
             </ul>
-
-            <div class="col-xs-5">
-                <form class="navbar-form">
-                    <input type="text" class="form-control" placeholder="Search..." style="width:100%;background:#eee; color:#dee6eb; border:none; border-radius:0px;">
-
-                </form>
-            </div>
         </div>
     </div>
 </div>

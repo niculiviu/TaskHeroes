@@ -7,7 +7,9 @@ app.controller('orgCtrl', ['$scope', 'loginService', '$location', '$rootScope', 
         }
         loginService.TeamID;
         $scope.TeamID_root = loginService.TeamID;
-        loginService.getLoggedUser($rootScope);
+        loginService.getLoggedUser().success(function (response) {
+            $scope.LoggedUserJson = response[0];
+        });
         membersService.getProject($scope.TeamID_root, $rootScope);
         membersService.getMembers($scope.TeamID_root, $rootScope);
         membersService.getDep($scope.TeamID_root, $rootScope);

@@ -5,17 +5,25 @@
         $scope.logout = function () {
             loginService.logout();
         }
+
         loginService.TeamID;
         $scope.TeamID_root = loginService.TeamID;
-        loginService.getLoggedUser($rootScope);
+
+        loginService.getLoggedUser().success(function (response) {
+            $scope.LoggedUserJson = response[0];
+        });
+
         $rootScope.permision = true;
+
         console.log($scope.TeamID_root);
        
         $scope.projectID = $rootScope.ProjectID;
 
         $scope.param = $routeParams.$$url;
+
         var url = $scope.param.split('/');
         console.log(url[3]);
+
         projectService.getSingleProject(url[3], $scope.TeamID_root, $rootScope, $scope);
         adminService.getMembers($scope.TeamID_root, $rootScope);
         adminService.getProject($scope.TeamID_root, $rootScope);
