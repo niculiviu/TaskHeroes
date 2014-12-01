@@ -30,9 +30,8 @@ app.factory('projectService', ['$http', '$location', 'sessionService', function 
             });
         },
         getProjectMembers: function (ID, $rootScope) {
-            $http.post("php/getProjectMembers.php?ID="+ID).success(function (data) {
-                $rootScope.ProjectMembers = data;
-            });
+            var $promise = $http.post("php/getProjectMembers.php?ID=" + ID);
+            return $promise;
         },
         addTask: function (json, $rootScope) {
             $http.post("php/addTask.php", json).success(function (data) {
