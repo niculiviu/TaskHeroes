@@ -6,7 +6,7 @@
         }
         
         loginService.TeamID;
-        
+        loginService.getLoggedUser($rootScope);
         
 
     }]);

@@ -24,6 +24,9 @@
                 <ul class="nav nav-pills nav-stacked"></ul>
             </div>
             <ul class="nav navbar-nav navbar-right">
+                <li ng-repeat="u in LoggedUserJson">
+                    <a href="">Hello {{u.nume_user}} {{u.prenume_user}}</a>
+                </li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Profile</a></li>
 

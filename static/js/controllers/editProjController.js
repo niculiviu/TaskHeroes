@@ -7,6 +7,7 @@
         }
         loginService.TeamID;
         $scope.TeamID_root = loginService.TeamID;
+        loginService.getLoggedUser($rootScope);
         $rootScope.permision = true;
         console.log($scope.TeamID_root);
        

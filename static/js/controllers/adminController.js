@@ -20,9 +20,8 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService',
         }
         loginService.TeamID;
         $scope.TeamID_root = loginService.TeamID;
-        console.log();
-
-        console.log($scope.TeamID_root);
+        loginService.getLoggedUser($rootScope);
+        //console.log($scope.TeamID_root + ' ' + $rootScope.LoggedUserJson);
         adminService.getMembers($scope.TeamID_root, $rootScope);
         adminService.getProject($scope.TeamID_root, $rootScope);
 

@@ -1,24 +1,24 @@
 ﻿'use strict';
 
-app.factory('loginService', function ($http, $location, sessionService) {
-    var TeamID;
-    return {
+app.factory('loginService', function ($http, $location, sessionService,$rootScope) {
+    var TeamID, userID;
+    var myFunctions =
+    {
         login: function (user,scope,rootScope) {
             console.log('Am intrat in loginService');
             var $promise = $http.post('php/login.php', user);
             $promise.then(function (msg) {
                 console.log(msg);
-                TeamID = msg.data;
-                scope.TeamID = msg.data;
-               
+                TeamID = msg.data[0];
+                userID = msg.data[1];
+                scope.TeamID = msg.data[0];
                 if (msg.data) {
                     scope.msgtxt = 'Success!';
-                    console.log('succes login');
-                    //sessionService.set('uid', uid);
-                    
+                    console.log('succes login');   
                     sessionService.set('TeamID', TeamID);
+                    sessionService.set('UserID', userID);
                     $location.path('/admin/');
-                    location.reload();
+                    location.reload(); 
                 }
                 else {
                     scope.msgtxt = 'Email-ul sau parola sunt incorecte';
@@ -53,6 +53,19 @@ app.factory('loginService', function ($http, $location, sessionService) {
                 }
                 
             });
+        },
+        getLoggedUser: function ($rootScope) {
+            console.log("logged user");
+            var user = sessionService.get('UserID');
+            $http.post('php/getLoggedUser.php?ID=' + user).success(function (data) {
+                if (data) {
+                    $rootScope.LoggedUserJson = data;
+                    console.log($rootScope.LoggedUserJson);
+                };
+            });
+
         }
     }
+
+    return myFunctions;
 });

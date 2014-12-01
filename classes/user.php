@@ -22,6 +22,19 @@ class User extends Password{
 		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
 		}
     }
+    
+    public function get_user_id($username){
+     try {
+			$stmt = $this->_db->prepare('SELECT ID FROM user WHERE email = :email ');
+			$stmt->execute(array('email' => $username));
+			
+			$row = $stmt->fetch();
+			return $row['ID'];
+
+		} catch(PDOException $e) {
+		    echo '<p class="bg-danger">'.$e->getMessage().'</p>';
+		}
+    }
 
 	private function get_user_hash($username){	
 

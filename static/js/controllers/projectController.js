@@ -8,6 +8,7 @@ app.controller('projectCtrl', ['$scope', 'loginService', '$location', 'projectSe
             loginService.logout();
         }
         loginService.TeamID;
+        loginService.getLoggedUser($rootScope);
         $scope.TeamID_root = loginService.TeamID;
         $rootScope.permision = true;
         console.log($scope.TeamID_root);
