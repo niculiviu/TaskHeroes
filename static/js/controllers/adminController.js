@@ -4,7 +4,8 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService',
     function ($scope, loginService, $routeParams, adminService, $rootScope, ngDialog, $route, sessionService) {
         $scope.txt = 'Page Home';
         $rootScope.PageName = 'Dashboard';
-        $rootScope.projectID = ''
+        $rootScope.projectID = '';
+        adminService.post_request();
         //$route.reload();
         $scope.viewProject = function (ID) {
             $scope.value = ID;
@@ -27,9 +28,11 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService',
         }];
 
         loginService.getLoggedUser().success(function (response) {
+            console.log("Am luat informatiile despre userul logat:");
             $scope.LoggedUserJson = response[0];
+            console.log($scope.LoggedUserJson);
         });
-        console.log($scope.TeamID_root + ' ' + loginService.getLoggedUser());
+        //console.log($scope.TeamID_root + ' ' + loginService.getLoggedUser());
         adminService.getMembers($scope.TeamID_root, $rootScope);
         adminService.getProject($scope.TeamID_root, $rootScope);
 
@@ -78,13 +81,15 @@ app.controller('adminCtrl', ['$scope', 'loginService', '$route', 'adminService',
         }
 
         $scope.addProject = function (project) {
+            console.log("Trimit requestul din adminController, vreau sa adaug proiectul:");
             console.log(project);
             adminService.addProject(project, $rootScope);
 
         }
 
         $scope.removeProject = function (ID) {
-            console.log(ID);
+            //console.log(ID);
+            console.log("Trimit requestul din adminController, vreau sa sterg proiectul cu ID-ul:"+ID);
             adminService.removeProject(ID);
         }
 

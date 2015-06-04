@@ -15,18 +15,21 @@
         membersService.getDep($scope.TeamID_root, $rootScope);
 
         $scope.addMember = function (data) {
+            console.log("Sunt in membersController si vreau sa adaug membrul:");
             console.log(data);
             membersService.newMember(data, $rootScope);
             $scope.newMember = '';
         }
         
         $scope.addDepartment = function (data) {
+            console.log("Sunt in membersController si vreau sa adaug departamentul:");
             console.log(data);
             membersService.newDep(data, $rootScope);
             
         }
         
-		$scope.removeDep = function (data) {
+        $scope.removeDep = function (data) {
+            console.log("Sunt in membersController si vreau sa sterg departamentul:");
             console.log(data);
             membersService.removeDepa(data, $rootScope, $scope.TeamID_root);
             
@@ -42,6 +45,7 @@
         }
 
         $scope.changeDep = function (idDep, idUser) {
+            console.log("Userul cu ID-ul" + idUser + "vrea sa treaca in departamentul" + idDep);
             membersService.updateDep(idDep, idUser, $scope.TeamID_root, $rootScope);
         }
 
@@ -54,6 +58,7 @@
             membersService.updateMember(memberInfo, $rootScope,$scope.TeamID_root);
         }
         $scope.deleteMember = function (memberID) {
+            console.log("Sunt in membersController si vreau sa sterg membrul:"+memberID);
             membersService.deleteMember(memberID,$scope.TeamID_root, $rootScope);
         }
         

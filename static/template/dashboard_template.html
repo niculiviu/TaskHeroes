@@ -1,4 +1,4 @@
-﻿<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" style="margin-top:30px;">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2" style="margin-top:29px;">
 
     <div class="row">
         <div style="background:#4388ab; color:#fff; padding:20px;">
@@ -9,7 +9,7 @@
     
     <div>
     </div>
-    <div class="row" style="background-image:url('img/bg_pattern.png')">
+    <div class="row" style="background:#dee6eb;">
         <div class="col-sm-6 col-md-4" style="padding:0px;">
             <div class="well well-project" align="center">
                 <h2>ADD NEW PROJECT</h2>
@@ -20,7 +20,9 @@
         <div class="col-sm-6 col-md-4" ng-repeat="proiect in proiecte" id="proiect_{{proiect.ID_proiect}}" style="padding:0px;">
             <div class="well well-project" style="cursor:pointer;" ng-click="goToProject(proiect.ID_proiect)">
                 <a ng-href="#/admin/project/{{proiect.ID_proiect}}" ng-click="goToProject(proiect.ID_proiect)">
-                    <h3 style="margin-top:0px;">{{proiect.nume_proiect}}</h3>
+                    <h3 style="margin-top:0px;">
+                        {{proiect.nume_proiect}}
+                    </h3>
                     <h4 style="color:#bacbd3;">Ends in {{DaysRemaining(proiect.start_date,proiect.end_date)}} days</h4>
                 </a>
                 <!--<small>Project Manager: <img src="img/default_user.png" style="height:20px; width:20px;" /> <a href="#/admin/profile/{{proiect.id_user_project_manager}}">{{proiect.nume_user}} {{proiect.prenume_user}}</a></small>

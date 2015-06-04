@@ -24,7 +24,9 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
             });
         },
         newMember: function (data, $rootScope) {
-            $http.post("php/newMember.php",data).success(function (data) {
+            console.log("Am intrat in functia newMember din memberService si vreau sa adaug un nou membru");
+            $http.post("php/newMember.php", data).success(function (data) {
+                console.log("Requestul a avut succes si am primit raspunsul:");
                 if (data) {
                     console.log(data);
                     myFunctions.getMembers(data, $rootScope);
@@ -32,7 +34,9 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
             });
         },
         newDep: function (data, $rootScope) {
+            console.log("Am intrat in functia newMember din memberService si vreau sa adaug un nou departament");
             $http.post("php/newDep.php", data).success(function (data) {
+                console.log("Requestul a avut succes si am primit raspunsul:");
                 if (data) {
                     console.log(data);
                     myFunctions.getDep(data, $rootScope);
@@ -40,8 +44,10 @@ app.factory('membersService', ['$http', '$location', function ($http, $rootScope
             });
         },
         
-        removeDepa: function (data, $rootScope,TeamID) {
-            $http.post("php/removeDep.php?ID=" + data).success(function (data) {    		
+        removeDepa: function (data, $rootScope, TeamID) {
+            console.log("Am intrat in functia removeDepa din membersService si vreaus a sterg un departament");
+            $http.post("php/removeDep.php?ID=" + data).success(function (data) {
+                console.log("Requestul a avut succes");
                 myFunctions.getDep(TeamID, $rootScope);
 
             });
